@@ -15,9 +15,10 @@ function HomePage() {
   // Loads all books and sets them to books
   function loadLocation() {
     API.getLocation()
-      .then(res => console.log(res.data) 
-    //   setLocation(res.data)
-      )
+      .then(res => {
+        console.log(res.data) 
+        setLocation(res.data)
+      })
       .catch(err => console.log(err));
   };
 
