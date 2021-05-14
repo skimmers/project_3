@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../../src/images/stairs-me.jpg';
+import avatar from '../../images/electric-car.svg';
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
@@ -26,14 +26,14 @@ function NavBar() {
                          </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/welcomepage" exact activeClassName="active">
-                            Profile
+                        <NavLink to="/homepage" exact activeClassName="active">
+                            Map Page
                          </NavLink>
                     </li>
                 </ul>
                 <footer className="footer">
                     <p>
-                        @2021 Arash Saeedi
+                        @2021 Team Name
                     </p>
                 </footer>
             </nav>

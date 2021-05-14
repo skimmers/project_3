@@ -1,9 +1,9 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
+import HomePage from '../src/pages/HomePage';
+import WelcomePage from '../src/pages/WelcomePage';
+import LoginPage from '../src/pages/LoginPage';
+import SignUp from './pages/SignUpPage';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -29,16 +29,16 @@ function App() {
         <div className="content">
           <Switch>
             <Route path="/" exact>
+              <WelcomePage />
+            </Route>
+            <Route path="/login" exact>
+              <LoginPage />
+            </Route>
+            <Route path="/signup" exact>
+              <SignUp />
+            </Route>
+            <Route path="/" exact>
               <HomePage />
-            </Route>
-            <Route path="/about" exact>
-              <AboutPage />
-            </Route>
-            <Route path="/portfolio" exact>
-              <PortfolioPage />
-            </Route>
-            <Route path="/contact" exact>
-              <ContactPage />
             </Route>
           </Switch>
         </div>
