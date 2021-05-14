@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import API from "../utils/API";
 
 
-function Home() {
+function HomePage() {
   // Setting our component's initial state
   const [location, setLocation] = useState([])
 
@@ -52,4 +52,4 @@ function Home() {
   }
 
 
-export default Home;
+export default HomePage;
