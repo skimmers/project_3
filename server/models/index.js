@@ -1,11 +1,16 @@
-const User = require('./User');
-const Station = require('./Station');
-const Comment = require('./Comment');
-const Favorite = require('./Favorite');
+const User = require('./server/models/User');
+const Station = require('./server/models/Station');
+const Comment = require('./server/models/Comment');
+const Favorite = require('./server/models/Favorite');
+const Location = require('./server/models/Location');
 
 User.hasMany(Favorite, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
+});
+
+Favorite.belongsTo(User, {
+    foreignKey: '',
 });
 
 Station.hasMany(Comment,{
@@ -24,7 +29,5 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id',
 
 });
-
-// ***** Not sure if this is the best way to handle the associations between user/comment and search/comment??
 
 module.exports = { User, Favorite, Comment, Location};
