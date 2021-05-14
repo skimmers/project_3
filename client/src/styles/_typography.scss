@@ -1,0 +1,32 @@
+.HomePage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // centering this on the x and y axis in order to have it look presentable 
+    width: 80%;
+}
+
+
+.hero-header {
+    color: white;
+    text-align: center;
+    font-size: 3.6rem;
+    margin-top: 12rem;
+    span  {
+        font-size: 4.6rem;
+        // color: #037FFF;
+    }
+    .electric{
+        color: yellow;
+    }
+    .ave{
+        color:#037FFF;
+    }
+}
+
+.intro{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 88%;
+}
