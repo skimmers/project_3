@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Comment, Station } = require('../models');
+const { User, Comment, Station } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // *** Put withAuth back in once we know the routes are good to go
