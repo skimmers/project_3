@@ -34,10 +34,10 @@ Comment.init(
                 key: 'id'
             }
         },
-        search_id: {
+        station_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'search',
+                model: 'station',
                 key: 'id'
             },
         },
