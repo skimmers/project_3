@@ -46,10 +46,18 @@ function HomePage() {
 //   }
 
     return (
+
         <div>
             <h2> Map Page</h2>
         </div>
     )
 }
+
+  //     <div>
+  //         <h1>Testing for API JSON data</h1>
+  //     </div>
+  //   );
+  // }
+
 
 export default HomePage;
