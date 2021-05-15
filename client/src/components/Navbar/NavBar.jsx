@@ -26,7 +26,7 @@ function NavBar() {
                          </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/homepage" exact activeClassName="active">
+                        <NavLink to="/map" exact activeClassName="active">
                             Map Page
                          </NavLink>
                     </li>

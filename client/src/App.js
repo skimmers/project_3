@@ -38,9 +38,8 @@ function App() {
             <Route path="/signup" exact>
               <SignUp />
             </Route>
-            <Route path="/homepage" exact>
-              <SearchBar placeholder="Enter Location" handleChange={(e) => console.log("This" + e.target)} />
-              {/* we will get value from the target in the console log I think... */}
+
+            <Route path="/map" exact>
               <HomePage />
             </Route>
           </Switch>
