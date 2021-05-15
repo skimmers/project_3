@@ -46,19 +46,11 @@ function HomePage() {
 //   }
 
     return (
-<<<<<<< HEAD
-        <div>
-            <h2> Map Page</h2>
-        </div>
-    )
-}
-=======
       <div>
           <h1>Testing for API JSON data</h1>
       </div>
     );
   }
 
->>>>>>> 8104ec43a6e32c66999a4bc2ea50772df03345a0
 
 export default HomePage;
