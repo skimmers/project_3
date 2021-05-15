@@ -4,6 +4,7 @@ import HomePage from '../src/pages/HomePage';
 import WelcomePage from '../src/pages/WelcomePage';
 import LoginPage from '../src/pages/LoginPage';
 import SignUp from './pages/SignUpPage';
+import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/signup" exact>
               <SignUp />
             </Route>
+
             <Route path="/map" exact>
               <HomePage />
             </Route>
