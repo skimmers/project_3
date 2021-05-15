@@ -15,41 +15,25 @@ Station.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        trail_name: {
+        station_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        park_name: {
+        station_address: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        trail_length: {
+        open_hours: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        battery_voltage: {
             type: DataTypes.DECIMAL(5,1),
             allowNull: false,
         },
-        elevation_gain: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        fees: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        difficulty: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        pets_allowed: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
-        },
-        trail_map: {
+        network_operator: {
             type: DataTypes.STRING,
-            allowNull: false
-        },
-        trail_img: {
-            type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -64,8 +48,8 @@ Station.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'search'
+        modelName: 'station'
     },
 );
 
-module.exports = Search;
+module.exports = Station;
