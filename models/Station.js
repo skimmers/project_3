@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Search extends Model {};
+class Station extends Model {};
 
 Station.init(
     {
@@ -28,7 +28,7 @@ Station.init(
             allowNull: false,
         },
         battery_voltage: {
-            type: DataTypes.DECIMAL(5,1),
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         network_operator: {
