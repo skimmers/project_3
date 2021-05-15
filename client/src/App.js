@@ -1,8 +1,8 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
-import HomePage from '../src/pages/HomePage';
-import WelcomePage from '../src/pages/WelcomePage';
-import LoginPage from '../src/pages/LoginPage';
+import HomePage from './pages/homepage';
+import WelcomePage from './pages/WelcomePage';
+import LoginPage from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
