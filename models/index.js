@@ -1,8 +1,8 @@
-const User = require('./server/models/User');
-const Station = require('./server/models/Station');
-const Comment = require('./server/models/Comment');
-const Favorite = require('./server/models/Favorite');
-const Location = require('./server/models/Location');
+const User = require('./models/User');
+const Station = require('./models/Station');
+const Comment = require('./models/Comment');
+const Favorite = require('./models/Favorite');
+const Location = require('./models/Location');
 
 User.hasMany(Favorite, {
     foreignKey: 'user_id',
@@ -10,7 +10,7 @@ User.hasMany(Favorite, {
 });
 
 Favorite.belongsTo(User, {
-    foreignKey: '',
+    foreignKey: 'fovorite_id',
 });
 
 Station.hasMany(Comment, {
@@ -30,4 +30,8 @@ Comment.belongsTo(User, {
 
 });
 
-module.exports = { User, Favorite, Comment, Location };
+User.hasMany(Comment, {
+    foreignKey: 'comment_id',
+});
+
+module.exports = { User, Favorite, Comment, Location, Station };
