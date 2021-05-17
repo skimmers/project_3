@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comment extends Model { };
+class Station extends Model {};
 
-Comment.init(
+Station.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,34 +11,35 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        title: {
+        state: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        comment: {
+        station_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        rating: {
+        station_address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        open_hours: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        date_created: {
-            type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW
+        battery_voltage: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        network_operator: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'id'
-            }
-        },
-        station_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'station',
-                key: 'id'
+                key: 'id',
             },
         },
     },
@@ -47,8 +48,8 @@ Comment.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment'
+        modelName: 'station'
     },
 );
 
-module.exports = Comment;
+module.exports = Station;
