@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { Component } from "react";
-import "../../App.css";
+// import "../../App.css";
 
 
 class Login extends Component {

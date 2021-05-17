@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import API from "../utils/API";
+import SearchBar from "../components/SearchBar/SearchBar"
 
 
 function HomePage() {
@@ -48,6 +49,7 @@ function HomePage() {
     return (
 
         <div>
+          <SearchBar />
             <h2> Map Page</h2>
         </div>
     )
