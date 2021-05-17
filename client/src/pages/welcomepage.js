@@ -1,4 +1,5 @@
 import React from 'react';
+import Popup from "../components/PopUp/PopUp"
 
 function WelcomePage() {
     return (
@@ -12,6 +13,9 @@ function WelcomePage() {
                 </p>
                 {/* maybe do an ocClick?? */}
                 <button className="get-started-btn rounded-pill">Get Started</button>
+                <Popup trigger={true}>
+                    <h3>My Popup</h3>
+                </Popup>
            </header>
 
         </div>

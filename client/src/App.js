@@ -1,12 +1,13 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
-import HomePage from './pages/homepage';
+import HomePage from './pages/HomPage';
 import WelcomePage from './pages/WelcomePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
+// import Popup from './components/PopUp/PopUp'
 
 
 function App() {
