@@ -2,12 +2,12 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import HomePage from './pages/HomPage';
 import WelcomePage from './pages/WelcomePage';
-import LoginPage from './pages/LoginPage';
+import LoginPage from '../src/pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import SearchBar from './components/SearchBar/SearchBar';
+// import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
-// import Popup from './components/PopUp/PopUp'
+// import Sidebar from './components/Sidebar/Sidebar';
 
 
 function App() {
