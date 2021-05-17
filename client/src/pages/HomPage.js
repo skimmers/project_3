@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from 'google-map-react';
 import API from "../utils/API";
+import SearchBar from "../components/SearchBar/SearchBar"
 
 
 function HomePage() {
@@ -46,19 +47,19 @@ function HomePage() {
 //   }
 
     return (
-<<<<<<< HEAD
+
         <div>
+          <SearchBar />
             <h2> Map Page</h2>
         </div>
     )
 }
-=======
-      <div>
-          <h1>Testing for API JSON data</h1>
-      </div>
-    );
-  }
 
->>>>>>> 8104ec43a6e32c66999a4bc2ea50772df03345a0
+  //     <div>
+  //         <h1>Testing for API JSON data</h1>
+  //     </div>
+  //   );
+  // }
+
 
 export default HomePage;
