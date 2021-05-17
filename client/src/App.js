@@ -1,7 +1,7 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import HomePage from './pages/HomPage';
-import WelcomePage from './pages/WelcomePage';
+import WelcomePage from './pages/welcomepage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';

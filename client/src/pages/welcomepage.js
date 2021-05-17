@@ -22,8 +22,8 @@ function WelcomePage() {
                 {/* maybe do an ocClick?? */}
                 <button onClick={() => setButtonPopup(true)} className="get-started-btn rounded-pill">Get Started</button>
                 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <Login />
-                    {/* <Signup /> */}
+                    {/* <Login /> */}
+                    <Signup />
                     {/* need to add CSS to this we are also working on connecting the auth key */}
                 </Popup>
            </header>
