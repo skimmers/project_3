@@ -24,6 +24,7 @@
     "if-env": "^1.0.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "react-modal-login": "^1.4.5",
     "sequelize": "^6.6.2"
   }
 }
