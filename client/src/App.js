@@ -1,12 +1,13 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
-import HomePage from '../src/pages/HomePage';
-import WelcomePage from '../src/pages/WelcomePage';
-import LoginPage from '../src/pages/LoginPage';
-import SignUp from './pages/SignUpPage';
+import HomePage from './pages/HomPage';
+import WelcomePage from './pages/welcomepage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
+// import Popup from './components/PopUp/PopUp'
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
               <LoginPage />
             </Route>
             <Route path="/signup" exact>
-              <SignUp />
+              <SignUpPage />
             </Route>
 
             <Route path="/map" exact>
