@@ -1,13 +1,12 @@
 import './App.scss';
 import NavBar from './components/Navbar/NavBar';
-import HomePage from '../src/pages/HomePage';
-import WelcomePage from '../src/pages/WelcomePage';
+import Map from '../src/pages/homepage';
+import WelcomePage from '../src/pages/welcomepage';
 import LoginPage from '../src/pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
-
 
 function App() {
   const [navToggle, setNavToggle] = useState(false);
@@ -38,9 +37,8 @@ function App() {
             <Route path="/signup" exact>
               <SignUp />
             </Route>
-
             <Route path="/map" exact>
-              <HomePage />
+              <Map />
             </Route>
           </Switch>
         </div>
