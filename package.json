@@ -27,9 +27,13 @@
     "mysql2": "^2.2.5",
 
     "react-modal-login": "^1.4.5",
+<<<<<<< HEAD
+    "react-spring": "^9.1.2",
+=======
 
     "react-router-dom": "^5.2.0",
 
+>>>>>>> 282231ed5dba59a80ef840e85c75fe9b04ef8797
     "sequelize": "^6.6.2"
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import Popup from "../components/PopUp/PopUp";
 import { useState } from 'react';
-import Login from '../components/Login/Login';
-import Signup from '../components/Signup/Signup';
+// import Login from '../components/Login/Login';
+// import Signup from '../components/Signup/Signup';
 
 
 function WelcomePage() {
@@ -23,7 +23,7 @@ function WelcomePage() {
                 <button onClick={() => setButtonPopup(true)} className="get-started-btn rounded-pill">Get Started</button>
                 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                     {/* <Login /> */}
-                    <Signup />
+                    {/* <Signup /> */}
                     {/* need to add CSS to this we are also working on connecting the auth key */}
                 </Popup>
            </header>
