@@ -21,8 +21,8 @@ function WelcomePage() {
                     Here at EA we strive to make access to EV charging stations easy...etc.etc..
                 </p>
                 {/* maybe do an ocClick?? */}
-                <button onClick={() => setButtonPopup(true)} className="get-started-btn rounded-pill">Sing In</button>
-                <button onClick={() => setSignupForm(true)} className="get-started-btn rounded-pill">Sign Up</button>
+                <button onClick={() => setButtonPopup(true)} className="sign-in-btn rounded-pill">Sign In</button>
+                <button onClick={() => setSignupForm(true)} className="sign-up-btn rounded-pill">Sign Up</button>
                 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <Login />
                     {/* <Signup /> */}

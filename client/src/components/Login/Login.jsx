@@ -5,7 +5,7 @@ import React, { Component } from "react";
 
 function Login(){
         return (
-           <form>
+           <form className="form">
                 <h3>Login</h3>
 
                 <div className="form-group">

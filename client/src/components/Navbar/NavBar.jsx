@@ -15,7 +15,7 @@ function NavBar() {
                             Home
                          </NavLink>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <NavLink to="/signup" exact activeClassName="active">
                             Sign Up
                          </NavLink>
@@ -24,7 +24,7 @@ function NavBar() {
                         <NavLink to="/login" exact activeClassName="active">
                             Login
                          </NavLink>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <NavLink to="/map" exact activeClassName="active">
                             Map Page

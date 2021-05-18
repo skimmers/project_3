@@ -13,7 +13,7 @@ function SignUp() {
   
     
         return (
-            <form>
+            <form className="form">
              <h4>Sign up</h4>
                 <div className="form-group">
                
