@@ -1,14 +1,20 @@
-import React, { Component } from "react";
-// import "../../App.css";
+import React, { Component, useState } from "react";
+import Login from "../Login/Login";
+import "./signup.css";
 
 
-class SignUp extends Component {
-    render() {
+
+
+function SignUp() {
+
+    const [signupForm, setSignupForm] = useState(false);
+  
+    
         return (
             <form>
-                <h3>Sign Up</h3>
-
+             <h4>Sign up</h4>
                 <div className="form-group">
+               
                     <label>First name</label>
                     <input type="text" className="form-control" placeholder="First name" />
                 </div>
@@ -30,11 +36,11 @@ class SignUp extends Component {
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                    Already registered? <button onClick={() => setSignupForm(true)}>sign in</button>
                 </p>
             </form>
         );
     }
-}
+
 
 export default SignUp;

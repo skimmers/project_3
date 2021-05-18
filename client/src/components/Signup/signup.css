@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+/* @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 * {
   box-sizing: border-box;
@@ -71,3 +71,16 @@ body, html, .App, #root, .auth-wrapper {
 .forgot-password a {
   color: #167bff;
 }
+
+
+ */
+
+
+ .form-group {
+   font-size: 1rem;
+
+
+    
+ }
+
+ 
