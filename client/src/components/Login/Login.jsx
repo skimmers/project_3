@@ -6,7 +6,7 @@ import React, { Component } from "react";
 class Login extends Component {
     render() {
         return (
-            <form>
+           <form>
                 <h3>Login</h3>
 
                 <div className="form-group">
@@ -31,7 +31,7 @@ class Login extends Component {
                     // eslint-disable-next-line jsx-a11y/anchor-is-valid
                     Forgot <a href="#">password?</a>
                 </p>
-            </form>
+                </form>
         );
     }
 }
