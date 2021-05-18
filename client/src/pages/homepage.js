@@ -7,38 +7,36 @@ function Map() {
   // Setting our component's initial states
   const [location, setLocation] = useState([])
   const [startingPoint, setStartingPoint] = useState({
-    lat: 0,
-    lng: 0
+    lat: 33.748997,
+    lng: -84.387985
   })
   // Will use selectedStation once we get pop up window working
   // const [selectedStation, setSelectedStation] = useState({})
 
   useEffect(() => {
 
-    // function that calls client side API to retrieve user's current location so we can set a start point for the map
-    function success(pos) {
-      var crd = pos.coords;
-  
-      setStartingPoint({lat: crd.latitude, lng: crd.longitude})
-    }
-  
-    navigator.geolocation.getCurrentPosition(success)
+    // function that calls client side API to retrieve user's current location so we can set a start point for the map 
+    navigator.geolocation.getCurrentPosition(function(position) {
+      setStartingPoint({lat: position.coords.latitude, lng: position.coords.longitude})
+      console.log(startingPoint.lat, startingPoint.lng)
 
-    // currentLocation();
+    })
 
     loadLocation();
 
-  }, [])
+  }, []);
 
-    // Loads all books and sets them to books
+  // Loads all books and sets them to books
   function loadLocation() {
-  API.getLocation()
-    .then(res => {
-      console.log(res.data) 
+  
+    API.getLocation(startingPoint.lat, startingPoint.lng)
+      .then(res => {
       setLocation(res.data)
+      console.log(location) 
     })
     .catch(err => console.log(err));
   };
+
 
 
   //   function handleInputChange(event) {
@@ -70,7 +68,9 @@ function Map() {
       defaultZoom={10}
       defaultCenter={{ lat: startingPoint.lat, lng: startingPoint.lng }}
     >
-      {location.map((loc) => {
+      {props.isMarkerShown && <Marker position={{ lat: 33.748997, lng: -84.387985 }} />}
+
+      {/* {location.map((loc) => {
         // console.log(loc.AddressInfo.Latitude)
         // <Marker
         //   key={loc.ID}
@@ -78,12 +78,13 @@ function Map() {
         //     lat: loc.AddressInfo.Latitude, 
         //     lng: loc.AddressInfo.Longitude }}
         // /> 
-      })}
+      })} */}
     </GoogleMap>
   ));
 
   return (
     <MapWithAMarker
+        isMarkerShown
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
