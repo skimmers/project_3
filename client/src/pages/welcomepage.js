@@ -8,7 +8,7 @@ import { useState } from 'react';
 function WelcomePage() {
 // this is for the popup so it can change its state and work
     const [buttonPopup, setButtonPopup] = useState(false);
-
+ 
 
     return (
         <div className="WelcomePage">
