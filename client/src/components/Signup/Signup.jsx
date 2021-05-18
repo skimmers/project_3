@@ -8,17 +8,12 @@ import "./signup.css";
 function SignUp() {
 
     const [signupForm, setSignupForm] = useState(false);
+    
   
     
         return (
-<<<<<<< HEAD
             <form>
              <h4>Sign up</h4>
-=======
-     <form>
-                <h3>Sign Up</h3>
-
->>>>>>> c0d04cf22a202fb4861ccae3ba5d550085394147
                 <div className="form-group">
                
                     <label>First name</label>
@@ -41,14 +36,10 @@ function SignUp() {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-<<<<<<< HEAD
                 <p className="forgot-password text-right">
                     Already registered? <button onClick={() => setSignupForm(true)}>sign in</button>
                 </p>
             </form>
-=======
-             </form>
->>>>>>> c0d04cf22a202fb4861ccae3ba5d550085394147
         );
     }
 
