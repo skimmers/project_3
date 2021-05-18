@@ -47,14 +47,6 @@ function HomePage() {
 //   }
 
     return (
-<<<<<<< HEAD:client/src/pages/homepage.js
-      <div>
-          <h1>Testing for API JSON data</h1>
-      </div>
-    );
-  }
-
-=======
 
         <div>
           <SearchBar />
@@ -69,6 +61,5 @@ function HomePage() {
   //   );
   // }
 
->>>>>>> 67b286145618014ff9707f053f91934b900f91f5:client/src/pages/HomPage.js
 
 export default HomePage;
