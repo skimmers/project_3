@@ -27,6 +27,7 @@
     "mysql2": "^2.2.5",
 
     "react-modal-login": "^1.4.5",
+    "react-spring": "^9.1.2",
 
     "react-router-dom": "^5.2.0",
 
