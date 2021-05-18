@@ -1,15 +1,33 @@
-import React, { useEffect, useState, Component } from "react";
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import MapContainer from "../components/MapContainer/MapContainer";
+import React, { useEffect, useState } from "react";
+import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps";
 import API from "../utils/API";
 
-function HomePage() {
+function Map() {
 
-  // Setting our component's initial state
+  // Setting our component's initial states
   const [location, setLocation] = useState([])
+  const [startingPoint, setStartingPoint] = useState({
+    lat: 0,
+    lng: 0
+  })
+  // Will use selectedStation once we get pop up window working
+  // const [selectedStation, setSelectedStation] = useState({})
 
   useEffect(() => {
-    loadLocation()
+
+    // function that calls client side API to retrieve user's current location so we can set a start point for the map
+    function success(pos) {
+      var crd = pos.coords;
+  
+      setStartingPoint({lat: crd.latitude, lng: crd.longitude})
+    }
+  
+    navigator.geolocation.getCurrentPosition(success)
+
+    // currentLocation();
+
+    loadLocation();
+
   }, [])
 
     // Loads all books and sets them to books
@@ -21,11 +39,7 @@ function HomePage() {
     })
     .catch(err => console.log(err));
   };
-    
-    // Load all books and store them with setBooks
 
-
-  
 
   //   function handleInputChange(event) {
   //     // add code to control the components here
@@ -50,11 +64,32 @@ function HomePage() {
   //     }
   //   }
 
+
+  const MapWithAMarker = withScriptjs(withGoogleMap(props =>
+    <GoogleMap
+      defaultZoom={10}
+      defaultCenter={{ lat: startingPoint.lat, lng: startingPoint.lng }}
+    >
+      {location.map((loc) => {
+        // console.log(loc.AddressInfo.Latitude)
+        // <Marker
+        //   key={loc.ID}
+        //   position={{ 
+        //     lat: loc.AddressInfo.Latitude, 
+        //     lng: loc.AddressInfo.Longitude }}
+        // /> 
+      })}
+    </GoogleMap>
+  ));
+
   return (
-    <div>
-      <MapContainer />
-    </div>
-  );
+      <MapWithAMarker
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+        />
+  )
 }
   
-export default HomePage;
+export default Map;
