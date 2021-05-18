@@ -15,7 +15,7 @@ function Popup(props) {
                     <button onClick={() => props.setTrigger(false)} className="close-btn">
                         x
                 </button>
-                <Signup />
+                {/* <Signup /> */}
                     {props.children}
                 </div>
                 <div className="form-group"></div>

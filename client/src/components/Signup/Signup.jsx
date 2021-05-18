@@ -1,13 +1,14 @@
 import React, { Component, useState } from "react";
 import Login from "../Login/Login";
 import "./signup.css";
+import Popup from "../PopUp/PopUp";
 
 
 
 
 function SignUp() {
 
-    const [signupForm, setSignupForm] = useState(false);
+   
     
   
     
@@ -37,7 +38,8 @@ function SignUp() {
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered? <button onClick={() => setSignupForm(true)}>sign in</button>
+                    {/* Already registered? <button onClick={() => setSignupForm(true)}>sign in</button> */}
+          
                 </p>
             </form>
         );
