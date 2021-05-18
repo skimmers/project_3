@@ -2,7 +2,7 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
-import LoginPage from '../src/pages/LoginPage';
+// import LoginPage from '../src/pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
@@ -33,12 +33,12 @@ function App() {
             <Route path="/" exact>
               <WelcomePage />
             </Route>
-            <Route path="/login" exact>
+            {/* <Route path="/login" exact>
               <LoginPage />
             </Route>
             <Route path="/signup" exact>
               <SignUpPage />
-            </Route>
+            </Route> */}
             <Route path="/map" exact>
               <Map />
             </Route>

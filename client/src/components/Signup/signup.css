@@ -78,9 +78,13 @@ body, html, .App, #root, .auth-wrapper {
 
  .form-group {
    font-size: 1rem;
+   padding-top: .5rem;
+  
 
 
     
  }
 
- 
+ .form{
+   padding-top: 4rem;
+ }
