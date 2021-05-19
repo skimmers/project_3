@@ -6,7 +6,7 @@ import FavoritePage from '../src/pages/FavoritesPage';
 // import SignUpPage from './pages/SignUpPage';
 // import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 // import Popup from './components/PopUp/PopUp'
 
 function App() {

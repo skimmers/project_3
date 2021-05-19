@@ -1,21 +1,34 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-import React, { Component } from "react";
-// import "../../App.css";
+import React, { useState } from "react";
+import axios from "axios";
 
 
-function Login(){
+
+
+ function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log("password is " + email);
+        console.log("password is " + password);
+        return axios.post("/api/userRoutes.js/login", { email, password});
+
+      };
+
+        // eslint-disable-next-line no-unreachable
         return (
-           <form className="form">
+           <form className="form" onSubmit={handleSubmit}>
                 <h3>Login</h3>
 
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+                    <input type="email" className="form-control" placeholder="Enter email"onChange={e => setEmail(e.target.value)}  />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
                 </div>
 
                 <div className="form-group">
@@ -27,12 +40,9 @@ function Login(){
 
                 <button type="submit" className="btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">
-                    {/* // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                    Forgot <a href="#">password?</a> */}
                 </p>
                 </form>
-        );
+        )
     }
-
 
 export default Login;
