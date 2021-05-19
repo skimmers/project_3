@@ -1,7 +1,14 @@
 const express = require("express");
+const session = require('express-session');
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const cors = require("cors");
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+app.use(cors());
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -11,7 +18,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
+//add compression
+e
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -22,3 +41,6 @@ app.get("*", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+
+
