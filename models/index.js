@@ -10,7 +10,7 @@ User.hasMany(Favorite, {
 });
 
 Favorite.belongsTo(User, {
-    foreignKey: 'fovorite_id',
+    foreignKey: 'favorite_id',
 });
 
 Station.hasMany(Comment, {

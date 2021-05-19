@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps";
 import API from "../utils/API";
+import MapWithMarkers from "../components/Map/Map";
 
 function Map() {
 
-  
-  // Setting our component's initial states
   const [location, setLocation] = useState([]);
   const [initPosition, setInitPosition] = useState({});
   // Will use selectedStation once we get pop up window working
@@ -13,7 +11,8 @@ function Map() {
 
   useEffect(() => {
     // function that calls client side API to retrieve user's current location so we can set a start point for the map
-    
+      // Setting our component's initial states
+
     const getData = async () => {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
@@ -26,8 +25,8 @@ function Map() {
       setLocation(res.data);
     }
 
-    getData();
-  }, []);
+    getData(); 
+  }, [initPosition.lat, initPosition.lng]);
 
 
   //   function handleInputChange(event) {
@@ -53,23 +52,11 @@ function Map() {
   //     }
   //   }
 
-  const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-
-    <GoogleMap
-      defaultZoom={13}
-      defaultCenter={{ lat: initPosition.lat, lng: initPosition.lng }}
-    >
-      {props.isMarkerShown && location.map(loc => {
-        return (
-          <Marker position={{lat: loc.AddressInfo.Latitude, lng: loc.AddressInfo.Longitude}} />
-        )
-      })}
-    </GoogleMap>
-  ));
-
   return (
-    <MapWithAMarker
+    <MapWithMarkers
         isMarkerShown
+        location={location}
+        initPosition={initPosition}
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
