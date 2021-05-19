@@ -85,18 +85,20 @@
     }
 }
 
-.get-started-btn {
-    padding: 1rem 2rem;
+.rounded-pill {
+    padding: .1rem .02rem;
     background-color: #037FFF;
     outline: none;
     border: none;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 3.5rem;;
     text-transform: uppercase;
     cursor: pointer;
     letter-spacing: 2px;
     margin-top: 3.5rem;
+    margin-left: 1rem;;
     position: relative;
+
 
     &:hover {
         color: yellow;

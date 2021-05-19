@@ -4,7 +4,7 @@
        padding: 32px;
        width: 100%;
        max-width: 640px;
-       background-color: white;
+       background-color: #037FFF;
 
 
 } */
@@ -17,7 +17,7 @@
 
 
 
- .container {
+ .back-drop {
      width: 100%;
      padding-top: 60px;
      padding-bottom: 100px;
@@ -37,7 +37,7 @@
 
  .login-register-wrapper {
      position: relative;
-     height: 560px;
+     height: 750px;
      width: 500px;
      margin-left: auto;
      margin-right: auto;
@@ -52,18 +52,19 @@
 .nav-btns {
     width: 100%;
     height: 100px;
-    padding-top: 40px;
+    padding-top: 460x;
     opacity: 1;
     margin-bottom: 3rem;
 }
 
-.nav-btns .close-btn {
+ .close-btn {
     position: absolute;
     top: 16px;
     right: 16px;
+    background-color:rgba(0, 0, 0, 0.2)
 }
 
-button {
+/* button {
     font-size: 1.5rem;
     margin-right: 1rem;
     border: 0px;
@@ -78,4 +79,4 @@ button:focus{
 button{
     padding-bottom: 10px;
     border-bottom: solid 2px #1059FF;
-}
+} */
