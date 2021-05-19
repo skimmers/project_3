@@ -7,18 +7,22 @@ function Map() {
   
   // Setting our component's initial states
   const [location, setLocation] = useState([]);
-  const [initPosition, setInitPosition] = useState({});
+  const [initPosition, setInitPosition] = useState({
+    lat: 42,
+    lng: -83
+  });
   // Will use selectedStation once we get pop up window working
   // const [selectedStation, setSelectedStation] = useState({})
 
   useEffect(() => {
+
     // function that calls client side API to retrieve user's current location so we can set a start point for the map
     
     const getData = async () => {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        setInitPosition({ lat: lat, lng: lng })
+        setInitPosition({ ...initPosition, lat: lat, lng: lng })
       })
       // Loads all API locations to be called in useEffect
       const res = await API.getLocation(initPosition.lat, initPosition.lng);
@@ -53,16 +57,23 @@ function Map() {
   //     }
   //   }
 
-  const MapWithAMarker = withScriptjs(withGoogleMap(props =>
 
+  const MapWithAMarker = withScriptjs(withGoogleMap(props =>
     <GoogleMap
-      defaultZoom={13}
+      defaultZoom={10}
       defaultCenter={{ lat: initPosition.lat, lng: initPosition.lng }}
     >
-      {props.isMarkerShown && location.map(loc => {
-        return (
-          <Marker position={{lat: loc.AddressInfo.Latitude, lng: loc.AddressInfo.Longitude}} />
-        )
+      {/* {props.isMarkerShown && <Marker position={{ lat: 33.748997, lng: -84.387985 }} />} */}
+
+      {location.map((loc) => {
+        // console.log(loc.AddressInfo.Latitude)
+        {props.isMarkerShown && <Marker
+          key={loc.ID}
+          position={{ 
+            lat: loc.AddressInfo.Latitude, 
+            lng: loc.AddressInfo.Longitude 
+          }}
+        />} 
       })}
     </GoogleMap>
   ));
