@@ -4,39 +4,34 @@ import API from "../utils/API";
 
 function Map() {
 
+  
   // Setting our component's initial states
-  const [location, setLocation] = useState([])
-  const [startingPoint, setStartingPoint] = useState({
-    lat: 33.748997,
-    lng: -84.387985
-  })
+  const [location, setLocation] = useState([]);
+  const [initPosition, setInitPosition] = useState({
+    lat: 42,
+    lng: -83
+  });
   // Will use selectedStation once we get pop up window working
   // const [selectedStation, setSelectedStation] = useState({})
 
   useEffect(() => {
 
-    // function that calls client side API to retrieve user's current location so we can set a start point for the map 
-    navigator.geolocation.getCurrentPosition(function(position) {
-      setStartingPoint({lat: position.coords.latitude, lng: position.coords.longitude})
-      console.log(startingPoint.lat, startingPoint.lng)
+    // function that calls client side API to retrieve user's current location so we can set a start point for the map
+    
+    const getData = async () => {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        setInitPosition({ ...initPosition, lat: lat, lng: lng })
+      })
+      // Loads all API locations to be called in useEffect
+      const res = await API.getLocation(initPosition.lat, initPosition.lng);
+      console.log(res.data);
+      setLocation(res.data);
+    }
 
-    })
-
-    loadLocation();
-
+    getData();
   }, []);
-
-  // Loads all books and sets them to books
-  function loadLocation() {
-  
-    API.getLocation(startingPoint.lat, startingPoint.lng)
-      .then(res => {
-      setLocation(res.data)
-      console.log(location) 
-    })
-    .catch(err => console.log(err));
-  };
-
 
 
   //   function handleInputChange(event) {
@@ -66,19 +61,20 @@ function Map() {
   const MapWithAMarker = withScriptjs(withGoogleMap(props =>
     <GoogleMap
       defaultZoom={10}
-      defaultCenter={{ lat: startingPoint.lat, lng: startingPoint.lng }}
+      defaultCenter={{ lat: initPosition.lat, lng: initPosition.lng }}
     >
-      {props.isMarkerShown && <Marker position={{ lat: 33.748997, lng: -84.387985 }} />}
+      {/* {props.isMarkerShown && <Marker position={{ lat: 33.748997, lng: -84.387985 }} />} */}
 
-      {/* {location.map((loc) => {
+      {location.map((loc) => {
         // console.log(loc.AddressInfo.Latitude)
-        // <Marker
-        //   key={loc.ID}
-        //   position={{ 
-        //     lat: loc.AddressInfo.Latitude, 
-        //     lng: loc.AddressInfo.Longitude }}
-        // /> 
-      })} */}
+        {props.isMarkerShown && <Marker
+          key={loc.ID}
+          position={{ 
+            lat: loc.AddressInfo.Latitude, 
+            lng: loc.AddressInfo.Longitude 
+          }}
+        />} 
+      })}
     </GoogleMap>
   ));
 
