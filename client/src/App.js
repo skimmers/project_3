@@ -2,9 +2,9 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
-// import LoginPage from '../src/pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import SearchBar from './components/SearchBar/SearchBar';
+import FavoritePage from '../src/pages/FavoritesPage';
+// import SignUpPage from './pages/SignUpPage';
+// import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 // import Popup from './components/PopUp/PopUp'
@@ -35,10 +35,10 @@ function App() {
             </Route>
             {/* <Route path="/login" exact>
               <LoginPage />
-            </Route>
-            <Route path="/signup" exact>
-              <SignUpPage />
             </Route> */}
+            <Route path="/favorites" exact>
+              <FavoritePage />
+            </Route>
             <Route path="/map" exact>
               <Map />
             </Route>

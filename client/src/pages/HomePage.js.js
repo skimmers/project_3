@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps";
 import API from "../utils/API";
-import MapWithMarkers from "../components/Map/Map";
 
 function Map() {
 
+  
+  // Setting our component's initial states
   const [location, setLocation] = useState([]);
-  const [initPosition, setInitPosition] = useState({});
+  const [initPosition, setInitPosition] = useState({
+    lat: 42,
+    lng: -83
+  });
   // Will use selectedStation once we get pop up window working
   // const [selectedStation, setSelectedStation] = useState({})
 
   useEffect(() => {
-    // function that calls client side API to retrieve user's current location so we can set a start point for the map
-      // Setting our component's initial states
 
+    // function that calls client side API to retrieve user's current location so we can set a start point for the map
+    
     const getData = async () => {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
-        setInitPosition({ lat: lat, lng: lng })
+        setInitPosition({ ...initPosition, lat: lat, lng: lng })
       })
       // Loads all API locations to be called in useEffect
       const res = await API.getLocation(initPosition.lat, initPosition.lng);
@@ -25,8 +30,8 @@ function Map() {
       setLocation(res.data);
     }
 
-    getData(); 
-  }, [initPosition.lat, initPosition.lng]);
+    getData();
+  }, []);
 
 
   //   function handleInputChange(event) {
@@ -52,11 +57,30 @@ function Map() {
   //     }
   //   }
 
+
+  const MapWithAMarker = withScriptjs(withGoogleMap(props =>
+    <GoogleMap
+      defaultZoom={10}
+      defaultCenter={{ lat: initPosition.lat, lng: initPosition.lng }}
+    >
+      {/* {props.isMarkerShown && <Marker position={{ lat: 33.748997, lng: -84.387985 }} />} */}
+
+      {location.map((loc) => {
+        // console.log(loc.AddressInfo.Latitude)
+        {props.isMarkerShown && <Marker
+          key={loc.ID}
+          position={{ 
+            lat: loc.AddressInfo.Latitude, 
+            lng: loc.AddressInfo.Longitude 
+          }}
+        />} 
+      })}
+    </GoogleMap>
+  ));
+
   return (
-    <MapWithMarkers
+    <MapWithAMarker
         isMarkerShown
-        location={location}
-        initPosition={initPosition}
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
