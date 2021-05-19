@@ -61,7 +61,14 @@ router.post('/signup', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});
+});git add 
 
+router.get('/authcheck', (req, res) => {
+  if (req.session.logged_in) {
+    res.status(200).json(true);
+  } else {
+    res.status(401).json(false);
+  }
+});
 
 module.exports = router;
