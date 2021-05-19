@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import MapWithMarkers from "../components/Map/Map";
+import StationInfo from '../components/MarkerPopup/MarkerPopup';
 
 function Map() {
 
   const [location, setLocation] = useState([]);
   const [initPosition, setInitPosition] = useState({});
+  const [markerInfo, setMarkerInfo] = useState(false);
   // Will use selectedStation once we get pop up window working
   // const [selectedStation, setSelectedStation] = useState({})
 
@@ -13,7 +15,7 @@ function Map() {
     // function that calls client side API to retrieve user's current location so we can set a start point for the map
       // Setting our component's initial states
 
-    const getData = async () => {
+    const getData = async (props) => {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let lng = position.coords.longitude;
@@ -22,6 +24,8 @@ function Map() {
       // Loads all API locations to be called in useEffect
       const res = await API.getLocation(initPosition.lat, initPosition.lng);
       console.log(res.data);
+      // console.log(res.data[1].AddressInfo);
+     
       setLocation(res.data);
     }
 
@@ -52,6 +56,8 @@ function Map() {
   //     }
   //   }
 
+  
+
   return (
     <MapWithMarkers
         isMarkerShown
@@ -61,6 +67,7 @@ function Map() {
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
+        markerInfo={markerInfo}
     />
   )
 }

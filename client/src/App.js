@@ -3,7 +3,7 @@ import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
 import FavoritePage from '../src/pages/FavoritesPage';
-// import SignUpPage from './pages/SignUpPage';
+import Login from '../src/components/Login/Login';
 // import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
@@ -33,9 +33,9 @@ function App() {
             <Route path="/" exact>
               <WelcomePage />
             </Route>
-            {/* <Route path="/login" exact>
-              <LoginPage />
-            </Route> */}
+            <Route path="/login" exact>
+              <Login />
+            </Route>
             <Route path="/favorites" exact>
               <FavoritePage />
             </Route>

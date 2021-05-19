@@ -1,6 +1,8 @@
 import React from 'react';
 import "./popup.css";
 //import Signup from "../Signup/Signup";
+import StationInfo from '../MarkerPopup/MarkerPopup';
+
 
 
 
@@ -15,7 +17,8 @@ function Popup(props) {
                     <button onClick={() => props.setTrigger(false)} className="close-btn">
                         x
                     </button>
-                    {/* <Signup /> */}
+                    {/* for loops to go through the array res.data[i].address */}
+                    
                     {props.children}
                 </div>
          

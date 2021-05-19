@@ -1,16 +1,3 @@
-// import React from 'react';
-
-
-// function FavoritesPage() {
-// return (
-//   <div className="fav-page">
-//     Favorites List Goes here
-//   </div>
-// )
-// }
- 
-// export default FavoritesPage;
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -60,7 +47,7 @@ export default function StationInfo(props) {
     setExpanded(!expanded);
   };
 
-  return (
+  return (props.trigger) ? (
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -133,5 +120,9 @@ export default function StationInfo(props) {
         </CardContent>
       </Collapse>
     </Card>
-  );
+  ): [];
 }
+
+
+
+
