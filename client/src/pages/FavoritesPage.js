@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FavoritePage() {
+export default function FavoritePage() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -141,5 +141,4 @@ function FavoritePage() {
 
 
 
- 
-export default FavoritePage;
+// export default FavoritePage;
