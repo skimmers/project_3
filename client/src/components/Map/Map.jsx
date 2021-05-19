@@ -1,5 +1,6 @@
 import React from 'react';
-import { GoogleMap, Marker, withScriptjs, withGoogleMap } from "react-google-maps";
+import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from "react-google-maps";
+import PopupInfo from "../PopupInfo/PopupInfo";
 
 const MapWithMarkers = withScriptjs(withGoogleMap(props =>
 
@@ -9,7 +10,11 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
     >
       {props.isMarkerShown && props.location.map(loc => {
         return (
-          <Marker position={{lat: loc.AddressInfo.Latitude, lng: loc.AddressInfo.Longitude}} />
+          <Marker key={loc.ID} position={{lat: loc.AddressInfo.Latitude, lng: loc.AddressInfo.Longitude}} >
+            <InfoWindow >
+                <PopupInfo location={loc} />
+            </InfoWindow>
+          </Marker>
         )
       })}
     </GoogleMap>
