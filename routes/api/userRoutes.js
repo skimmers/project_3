@@ -63,4 +63,12 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+router.get('/authcheck', (req, res) => {
+  if (req.session.logged_in) {
+    res.status(200).json(true);
+  } else {
+    res.status(401).json(false);
+  }
+});
+
 module.exports = router;
