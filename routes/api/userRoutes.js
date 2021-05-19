@@ -6,7 +6,9 @@ const withAuth = require('../../utils/auth');
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+    
+    console.log(userData);
+    
     if (!userData) {
       res
         .status(400)

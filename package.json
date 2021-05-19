@@ -11,8 +11,7 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "seed": "node seeds/seed.js"
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -25,9 +24,10 @@
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
-    "express-session": "^1.17.1",
+    "cors": "^2.8.5",
     "dotenv": "^9.0.0",
     "express": "^4.16.3",
+    "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
