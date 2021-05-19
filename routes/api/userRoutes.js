@@ -61,7 +61,7 @@ router.post('/signup', async (req, res) => {
   } catch (err) {
     res.status(400).json(err);
   }
-});git add 
+});
 
 router.get('/authcheck', (req, res) => {
   if (req.session.logged_in) {
