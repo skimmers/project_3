@@ -25,6 +25,11 @@ function NavBar() {
                             Favorites
                          </NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink to="/search" exact activeClassName="active">
+                            Search
+                         </NavLink>
+                    </li>
                     {/* <li className="nav-item">
                         <NavLink to="/login" exact activeClassName="active">
                             Login
