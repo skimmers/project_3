@@ -20,7 +20,7 @@ function SignUp() {
         console.log("password is " + lastName);
         console.log("password is " + email);
         console.log("password is " + password);
-        return axios.post("/api/signup", { firstName, lastName, email, password });
+        return axios.post("/api/users/signup", { firstName, lastName, email, password });
 
       };
    
