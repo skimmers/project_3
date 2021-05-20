@@ -7,8 +7,8 @@ import Signup from '../components/Signup/Signup';
 
 function WelcomePage() {
 // this is for the popup so it can change its state and work
-    const [buttonPopup, setButtonPopup] = useState(false);
-    const [signupForm, setSignupForm] = useState(false);
+    // const [buttonPopup, setButtonPopup] = useState(false);
+    // const [signupForm, setSignupForm] = useState(false);
  
 
     return (
@@ -21,18 +21,13 @@ function WelcomePage() {
                     Here at EA we strive to make access to EV charging stations easy...etc.etc..
                 </p>
                 {/* maybe do an ocClick?? */}
-                <Link to="/login" onClick={() => setButtonPopup(true)} className="sign-in-btn rounded-pill">Sign In</Link>
-                <Link to="/signup" onClick={() => setSignupForm(true)} className="sign-up-btn rounded-pill">Sign Up</Link>
-                <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <Login />
-                    {/* <Signup /> */}
-                    {/* need to add CSS to this we are also working on connecting the auth key */}
-                </Popup>
-                <Popup trigger={signupForm} setTrigger={setSignupForm}>
-                    {/* <Login /> */}
-                    <Signup />
-                    {/* need to add CSS to this we are also working on connecting the auth key */}
-                </Popup>
+                <Link to="/login" >
+                <button  className="sign-in-btn rounded-pill">Sign In</button>
+                </Link>
+                <Link to="/signup" >
+            <button className="sign-up-btn rounded-pill">Sign Up</button>
+                </Link>
+           
            </header>
 
         </div>

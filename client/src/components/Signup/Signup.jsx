@@ -3,6 +3,7 @@ import React, { Component, useState } from "react";
 import "./signup.css";
 // import Popup from "../PopUp/PopUp";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 
 
@@ -23,11 +24,13 @@ function SignUp() {
         return axios.post("/api/users/signup", { firstName, lastName, email, password });
 
       };
-   
-    
+  
+      const history = useHistory();
+      
         return (
             <form className="form" onSubmit={handleSubmit}>
-             <h4>Sign up</h4>
+             <h3>Sign up</h3>
+             <button onClick={() => history.goBack()} className="close-btn">x</button>
                 <div className="form-group">
                
                     <label>First name</label>
@@ -49,7 +52,7 @@ function SignUp() {
                     <input type="password" className="form-control" placeholder="Enter password" onChange={e => setPassword(e.target.value)}/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                <button type="submit" className="signin-btn btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
                     {/* Already registered? <button onClick={() => setSignupForm(true)}>sign in</button> */}
           
