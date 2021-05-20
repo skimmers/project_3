@@ -2,7 +2,7 @@
     .sidebar {
         width: 16%;
         height: 100vh;
-        background-color: #191D2B;
+        background-color: #090c1a;
         position: fixed;
         z-index: 11;
         border-right: 1px solid #2e344e;
@@ -28,7 +28,7 @@
     .main-content {
         width: 84%;
         margin-left: 16%;
-        background-color: #10121B;
+        background-color: #000000;
         min-height: 100vh;
         // look for a good image if you can find one
         // background-image: url(../images/blue-back.jpg);
@@ -69,7 +69,7 @@
     .line-1, .line-2, .line-3{
         height: .4rem;
         width: 100%;
-        background-color: #3758cf;
+        background-color: cyan;
         pointer-events: none;
         display: none;
         border-radius: 20px;
@@ -87,7 +87,7 @@
 
 .rounded-pill {
     padding: .1rem .02rem;
-    background-color: #037FFF;
+    background-color: cyan;
     outline: none;
     border: none;
     font-family: inherit;
@@ -101,7 +101,7 @@
 
 
     &:hover {
-        color: yellow;
+        color: #ff1dce;
     }
 
     }
