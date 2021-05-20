@@ -3,12 +3,12 @@ import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
 import FavoritePage from '../src/pages/FavoritesPage';
-// import SignUpPage from './pages/SignUpPage';
+import Login from './components/Login/Login';
 // import SearchBar from './components/SearchBar/SearchBar';
-import { Switch, Route } from 'react-router-dom';
+import {  Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import SearchPage from '../src/pages/SearchPage.js';
-// import Popup from './components/PopUp/PopUp'
+import Signup from './components/Signup/Signup';
 
 function App() {
   const [navToggle, setNavToggle] = useState(false);
@@ -30,13 +30,13 @@ function App() {
       </div>
       <div className="main-content">
         <div className="content">
+     
           <Switch>
             <Route path="/" exact>
               <WelcomePage />
             </Route>
-            {/* <Route path="/login" exact>
-              <LoginPage />
-            </Route> */}
+            <Route path="/login" exact component={Login}></Route>
+            <Route path="/signup" exact component={Signup}></Route>
             <Route path="/favorites" exact>
               <FavoritePage />
             </Route>
@@ -47,6 +47,7 @@ function App() {
               <SearchPage />
             </Route>
           </Switch>
+
         </div>
       </div>
 
