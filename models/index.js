@@ -1,8 +1,8 @@
-const User = require('./models/User');
-const Station = require('./models/Station');
-const Comment = require('./models/Comment');
-const Favorite = require('./models/Favorite');
-const Location = require('./models/Location');
+const User = require('./User');
+const Station = require('./Station');
+const Comment = require('./Comment');
+const Favorite = require('./Favorite');
+//const Location = require('./Location');
 
 User.hasMany(Favorite, {
     foreignKey: 'user_id',
@@ -17,9 +17,9 @@ Station.hasMany(Comment, {
     foreignKey: 'station_id',
 });
 
-Location.hasMany(Station, {
-    foreignKey: 'location_id',
-});
+//Location.hasMany(Station, {
+    //foreignKey: 'location_id',
+//});
 
 Favorite.belongsTo(Station, {
     foreignKey: 'user_id',
@@ -34,4 +34,4 @@ User.hasMany(Comment, {
     foreignKey: 'comment_id',
 });
 
-module.exports = { User, Favorite, Comment, Location, Station };
+module.exports = { User, Favorite, Comment, Station };

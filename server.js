@@ -17,7 +17,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-z
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
@@ -30,7 +30,6 @@ const sess = {
 
 app.use(session(sess));
 //add compression
-e
 
 // Send every other request to the React app
 // Define any API routes before this runs
