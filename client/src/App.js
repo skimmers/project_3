@@ -7,6 +7,7 @@ import FavoritePage from '../src/pages/FavoritesPage';
 // import SearchBar from './components/SearchBar/SearchBar';
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
+import SearchPage from '../src/pages/SearchPage.js';
 // import Popup from './components/PopUp/PopUp'
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route path="/map" exact>
               <Map />
+            </Route>
+            <Route path="/search" exact>
+              <SearchPage />
             </Route>
           </Switch>
         </div>
