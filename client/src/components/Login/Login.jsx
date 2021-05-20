@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+// import { useHistory } from "react-router-dom";
+// this can make the history of the button click take you to a new route.
+// but it gets stuck on that page
 
 
 
@@ -15,6 +18,11 @@ import axios from "axios";
         return axios.post("/api/users/login", { email, password});
 
       };
+    //   let history = useHistory();
+    // onClick={() => { history.push('/favorites')}}
+    // this is the code in case we want to use it...
+
+     
 
         // eslint-disable-next-line no-unreachable
         return (
@@ -38,7 +46,7 @@ import axios from "axios";
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button  type="submit" className="btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">
                 </p>
                 </form>

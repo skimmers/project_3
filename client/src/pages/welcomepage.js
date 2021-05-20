@@ -1,6 +1,6 @@
-import React from 'react';
+import React,  { useState } from 'react';
 import Popup from "../components/PopUp/PopUp";
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Login from '../components/Login/Login';
 import Signup from '../components/Signup/Signup';
 
@@ -21,8 +21,8 @@ function WelcomePage() {
                     Here at EA we strive to make access to EV charging stations easy...etc.etc..
                 </p>
                 {/* maybe do an ocClick?? */}
-                <button onClick={() => setButtonPopup(true)} className="sign-in-btn rounded-pill">Sign In</button>
-                <button onClick={() => setSignupForm(true)} className="sign-up-btn rounded-pill">Sign Up</button>
+                <Link to="/login" onClick={() => setButtonPopup(true)} className="sign-in-btn rounded-pill">Sign In</Link>
+                <Link to="/signup" onClick={() => setSignupForm(true)} className="sign-up-btn rounded-pill">Sign Up</Link>
                 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                     <Login />
                     {/* <Signup /> */}
