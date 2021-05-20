@@ -1,16 +1,16 @@
 import React from 'react';
 
-//function SearchBar(props){
-    //return (
-       //<input type="search"
-       //className="search-bar"
-       //placeholder={props.placeholder}
-       //onChange={props.handleChange} 
-       ///>
-    //)
-//}
+function SearchBar(props){
+    return (
+       <input type="search"
+       className="search-bar"
+       placeholder={props.placeholder}
+       onChange={props.handleChange} 
+       />
+    )
+}
 
-const SearchBar = ({keyword,setKeyword}) => {
+/* const SearchBar = ({keyword,setKeyword}) => {
     const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
     return (
       <input 
@@ -21,6 +21,6 @@ const SearchBar = ({keyword,setKeyword}) => {
        onChange={(e) => setKeyword(e.target.value)}
       />
     );
-  }
+  } */
 
 export default SearchBar;
