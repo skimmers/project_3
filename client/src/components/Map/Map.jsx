@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from "react-google-maps";
 import PopupInfo from "../PopupInfo/PopupInfo";
 import StationInfo from '../Favorites/Favorites';
@@ -12,6 +12,18 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
     >
       {props.isMarkerShown && props.location.map(loc => {
         const [evStation, setEvStation] = useState(null);
+      //   useEffect(() => {
+      //     const listener = e => {
+      //        if (e.key === "Escape") {
+      //           setEvStation(null);
+      //        }
+      //     };
+      //     window.addEventListener("keydown", listener);
+      //     return () => {
+      //        window.removeEventListener("keydown", listener);
+      //     };
+      //  }, 
+      //  []);
         return (
           <Marker key={loc.ID}
            position={{lat: loc.AddressInfo.Latitude,
