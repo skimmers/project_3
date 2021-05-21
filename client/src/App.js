@@ -2,7 +2,7 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
-import FavoritePage from '../src/pages/FavoritesPage';
+import StationInfo from './components/Favorites/Favorites';
 import Login from './components/Login/Login';
 // import SearchBar from './components/SearchBar/SearchBar';
 import {  Switch, Route } from 'react-router-dom';
@@ -37,8 +37,8 @@ function App() {
             </Route>
             <Route path="/login" exact component={Login}></Route>
             <Route path="/signup" exact component={Signup}></Route>
-            <Route path="/favorites" exact>
-              <FavoritePage />
+            <Route path="/station" exact component={StationInfo}>
+              <StationInfo />
             </Route>
             <Route path="/map" exact>
               <Map />
