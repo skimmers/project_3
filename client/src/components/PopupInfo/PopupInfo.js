@@ -1,5 +1,5 @@
 import React from 'react';
-// import './popupinfo.css';
+import './popupinfo.css';
 import { Link } from 'react-router-dom';
 
 
@@ -17,13 +17,17 @@ export default function StationInfo(props) {
     
 
 <div className="popupBody">
-      <p className="popupInfo">Title: {props.location.AddressInfo.Title}</p>
-      <p className="popupInfo">Town: {props.location.AddressInfo.Town}</p>
-      <p className="popupInfo">Power/KW: {props.location.Connections[0].PowerKW}</p>
-      <p className="popupInfo">Address: {props.location.AddressInfo.AddressLine1}</p>
-      <p className="popupInfo">Longitude: {props.location.AddressInfo.Longitude}</p>
-      <p className="popupInfo">Latitude: {props.location.AddressInfo.Latitude}</p>
-      {/* <button  type="submit" className="login-btn btn-primary btn-block">Fav</button> */}
+      <p className="popupInfo"><span>Title:</span> {props.location.AddressInfo.Title}</p>
+      <p className="popupInfo"><span>Power/KW:</span> {props.location.Connections[0].PowerKW}</p>
+      <p className="popupInfo"><span>Voltage:</span> {props.location.Connections[0].Voltage}</p>
+      <p className="popupInfo"><span>Connection Type:</span> {props.location.Connections[0].CommectionTypeID}</p>
+      <p className="popupInfo"><span>Address:</span> {props.location.AddressInfo.AddressLine1}</p>
+      <p className="popupInfo"><span>City:</span> {props.location.AddressInfo.Town}</p>
+      <p className="popupInfo"><span>Access:</span> {props.location.AddressInfo.AccessComments}</p>
+      {/* <button></button> */}
+      <a href={props.location.AddressInfo.RelatedURL} target="_blank">Station Provider Site</a>
+    
+
 </div>
 
 
