@@ -9,9 +9,15 @@ import {  Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import SearchPage from '../src/pages/SearchPage.js';
 import Signup from './components/Signup/Signup';
+import axios from 'axios';
+
 
 function App() {
   const [navToggle, setNavToggle] = useState(false);
+
+  // axios.defaults.proxy.host = "http://localhost:3001";
+  // axios.defaults.baseURL = "http://localhost:3001";
+  console.log(axios.defaults.baseURL)
 
 
   const navClick = () => {

@@ -3,12 +3,11 @@ const session = require('express-session');
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const cors = require("cors");
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-app.use(cors());
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
