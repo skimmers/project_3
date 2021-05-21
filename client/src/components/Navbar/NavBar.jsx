@@ -20,11 +20,11 @@ function NavBar() {
                             Map Page
                          </NavLink>
                     </li>
-                    <li className="nav-item">
-                        <NavLink to="/favorites" exact activeClassName="active">
-                            Favorites
+                    {/* <li className="nav-item">
+                        <NavLink to="/station" exact activeClassName="active">
+                           Station
                          </NavLink>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <NavLink to="/search" exact activeClassName="active">
                             Search
