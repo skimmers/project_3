@@ -9,7 +9,7 @@
 
        .footer {
         width: 100%;
-        border-top: 1px solid #2e344e;
+        border-top: 1px solid #ff1dce;
         text-align: center;
         p{
             text-align: center;
@@ -23,12 +23,13 @@
             width: 100%;
             text-align: center;
             margin-top: 1rem;
-            border-bottom: 1px solid #2e344e;
+            border-bottom: 1px solid #ff1dce;
             img{
                 width: 70%;
                 border-radius: 100%;
-                border: 5px solid #2e344e;
+                border: 5px solid #ff1dce;
                 margin-bottom: 1rem;
+              
             }
        }
 
@@ -52,7 +53,7 @@
                     left: 0;
                     width: .4rem;
                     height: 100%;
-                    background-color: #0381ff33;
+                    background-color: #ff1dce5e;
                     transform-origin: bottom;
                     transform: scale(0);
                     overflow-x: hidden;
@@ -70,5 +71,5 @@
 }
 
 .active {
-    background-color: #037FFF;
+    background-color: #ff1dce5e;
 }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SearchBar from '../components/SearchBar/SearchBar';
-import SearchResult from '../components/SearchResult';
+import SearchResult from '../components/SearchResult/SearchResult';
 
 const SearchPage = (props) => {
   const [input, setInput] = useState('');

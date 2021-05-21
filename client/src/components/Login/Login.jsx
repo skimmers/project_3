@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './login.css'
+import { useHistory } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // this can make the history of the button click take you to a new route.
 // but it gets stuck on that page
@@ -18,17 +20,16 @@ import axios from "axios";
         return axios.post("/api/login", { email, password});
 
       };
-    //   let history = useHistory();
-    // onClick={() => { history.push('/favorites')}}
-    // this is the code in case we want to use it...
 
+
+      const history = useHistory();
      
 
         // eslint-disable-next-line no-unreachable
         return (
            <form className="form" onSubmit={handleSubmit}>
                 <h3>Login</h3>
-
+                <button onClick={() => history.goBack()} className="close-btn">x</button>
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" className="form-control" placeholder="Enter email"onChange={e => setEmail(e.target.value)}  />
@@ -46,7 +47,7 @@ import axios from "axios";
                     </div>
                 </div>
 
-                <button  type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button  type="submit" className="login-btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">
                 </p>
                 </form>

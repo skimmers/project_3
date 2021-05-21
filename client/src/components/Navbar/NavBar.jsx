@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../../images/electric-car.svg';
+import avatar from '../../images/charging-station-icon-9.jpg';
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
@@ -7,7 +7,7 @@ function NavBar() {
         <div className="NavBar">
             <nav className="nav">
                 <div className="profile">
-                    <img src={avatar} alt="Arash Saeedi" />
+                    <img src={avatar} alt="EV Logo" />
                 </div>
                 <ul className="nav-items">
                     <li className="nav-item">
