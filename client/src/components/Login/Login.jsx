@@ -15,7 +15,7 @@ import axios from "axios";
         e.preventDefault();
         console.log("password is " + email);
         console.log("password is " + password);
-        return axios.post("/api/users/login", { email, password});
+        return axios.post("/api/login", { email, password});
 
       };
     //   let history = useHistory();
