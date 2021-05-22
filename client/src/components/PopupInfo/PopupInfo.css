@@ -1,0 +1,19 @@
+.popupInfo {
+    font-size: 14px;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+<<<<<<< HEAD:client/src/components/PopupInfo/popupinfo.css
+}
+=======
+    font-weight: 650;
+
+
+}
+
+.popupInfo span{
+  color: rgb(3, 131, 148);
+text-decoration: underline;
+text-align: center;
+padding: .5rem;
+}
+>>>>>>> 26aa02cc66927a0de01864fd3582db111c20d004:client/src/components/PopupInfo/PopupInfo.css
