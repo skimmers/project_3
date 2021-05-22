@@ -13,7 +13,7 @@ function SignUp() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,11 +21,28 @@ function SignUp() {
         console.log("password is " + lastName);
         console.log("password is " + email);
         console.log("password is " + password);
-        return axios.post("/api/signup", { firstName, lastName, email, password });
+        axios.post("/api/users/signup", { firstName, lastName, email, password }).then(res => {
+            if (res.status === 200 ) {
+                //we signed in succesfully, and the user is now logged in
+                history.push("/map");
+
+            } else {
+                //we did not log in correctly, OR maybe we'll hit the catch? 
+            }
+        })
+        //this should be hit if we get anythign but a 200
+        .catch(e => {
+            console.log(e);
+            console.log(e.response);
+            if (e.response && e.response.data) {
+                const errorMessage = e.response.data.message;
+                //do something with our error message to tell the user what happened
+            }
+        });
 
       };
   
-      const history = useHistory();
+
       
         return (
             <form className="form" onSubmit={handleSubmit}>

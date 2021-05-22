@@ -1,5 +1,5 @@
 import React from 'react';
-import './popupinfo.css';
+import './PopupInfo.css';
 import { Link } from 'react-router-dom';
 
 
@@ -14,8 +14,6 @@ export default function StationInfo(props) {
   console.log(props)
 
   return (
-    
-
 <div className="popupBody">
       <p className="popupInfo"><span>Title:</span> {props.location.AddressInfo.Title}</p>
       <p className="popupInfo"><span>Power/KW:</span> {props.location.Connections[0].PowerKW}</p>
