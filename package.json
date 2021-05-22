@@ -31,6 +31,8 @@
     "if-env": "^1.0.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "react-geocode": "^0.2.3",
+    "react-google-autocomplete": "^2.2.0",
     "react-modal-login": "^1.4.5",
     "react-router-dom": "^5.2.0",
     "react-spring": "^9.1.2",
