@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, Comment, Search } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
   try {
@@ -19,33 +18,37 @@ router.post('/', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    let userData = await User.findOne({ where: { email: req.body.email } });
 
-    if (!userData) {
+    if (userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'A user with this email already exists' });
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+    userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+
+      res.json({ user: userData, message: 'User created!' });
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    if (err.errors && err.errors.length > 0) {
+      console.log("ERROR!");
+      const message = err.errors[0].message;
+      //if we detect an array of errors, that must be from sequelize
+      //send all of those back to the frontend so we can deal with the error messages     
+      res.status(400).json({
+        message
+      });
+      return;
+    }
+
+    res.status(500).json(err);
   }
 });
 
@@ -90,5 +93,18 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.get('/authcheck', (req, res) => {
+  if (req.session && req.session.logged_in) {
+    res.json({ 
+      logged_in: true,
+      user_id: req.session.user_id
+    });
+  } else {
+    res.json({ 
+      logged_in: false
+    });
+  }
+})
 
 module.exports = router;

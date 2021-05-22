@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         console.log(favorited);
         res.status(200).json(favorited);
     } catch (err) {
-        res.redirect("login");
+        //res.redirect("login");
     }
 });
 
