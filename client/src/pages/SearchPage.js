@@ -1,5 +1,25 @@
-import React, {useState, useEffect} from 'react';
-import SearchBar from '../components/SearchBar/SearchBar';
+//import React, {useState, useEffect} from 'react';
+
+import React, {Component} from 'react';
+import Map2 from '../components/Map2.js';
+
+class SearchPage extends Component {
+  render() {
+    return(
+        <Map2
+     google={this.props.google}
+     center={{lat: 18.5204, lng: 73.8567}}
+     height='300px'
+     zoom={15}
+    />
+      )
+  }
+}
+
+export default SearchPage;
+
+
+/* import SearchBar from '../components/SearchBar/SearchBar';
 import SearchResult from '../components/SearchResult/SearchResult';
 
 const SearchPage = (props) => {
@@ -35,6 +55,4 @@ const SearchPage = (props) => {
       <SearchResult searchResult={searchResult}/>
     </>
    );
-}
-
-export default SearchPage
+} */

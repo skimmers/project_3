@@ -12,6 +12,7 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
     >
       {props.isMarkerShown && props.location.map(loc => {
         const [evStation, setEvStation] = useState(null);
+
       //   useEffect(() => {
       //     const listener = e => {
       //        if (e.key === "Escape") {
@@ -24,6 +25,7 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
       //     };
       //  }, 
       //  []);
+
         return (
           <Marker key={loc.ID}
            position={{lat: loc.AddressInfo.Latitude,
@@ -31,7 +33,16 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
             onClick={() => {
               setEvStation(loc);
             }}
-          >{ evStation && (       <InfoWindow >
+          >{ evStation && (       <InfoWindow 
+            onCloseClick={() => {
+              setEvStation(null);
+           }}
+
+           position={{
+            lat: evStation.latitude,
+            lng: evStation.longitude
+         }}
+           >
               <PopupInfo location={loc} />
         </InfoWindow>)}
   
