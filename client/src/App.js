@@ -2,16 +2,22 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
-import FavoritePage from '../src/pages/FavoritesPage';
+import StationInfo from './components/Favorites/Favorites';
 import Login from './components/Login/Login';
 // import SearchBar from './components/SearchBar/SearchBar';
 import {  Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import SearchPage from '../src/pages/SearchPage.js';
 import Signup from './components/Signup/Signup';
+import axios from 'axios';
+
 
 function App() {
   const [navToggle, setNavToggle] = useState(false);
+
+  // axios.defaults.proxy.host = "http://localhost:3001";
+  // axios.defaults.baseURL = "http://localhost:3001";
+  console.log(axios.defaults.baseURL)
 
 
   const navClick = () => {
@@ -37,8 +43,8 @@ function App() {
             </Route>
             <Route path="/login" exact component={Login}></Route>
             <Route path="/signup" exact component={Signup}></Route>
-            <Route path="/favorites" exact>
-              <FavoritePage />
+            <Route path="/station" exact component={StationInfo}>
+              <StationInfo />
             </Route>
             <Route path="/map" exact>
               <Map />
