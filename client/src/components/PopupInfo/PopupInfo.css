@@ -1,19 +1,15 @@
 .popupInfo {
     font-size: 14px;
-    color:black;
-    font-family: 'Times New Roman', Times, serif;
-<<<<<<< HEAD:client/src/components/PopupInfo/popupinfo.css
-}
-=======
-    font-weight: 650;
+    color:#ff1dce;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 444;
 
 
 }
 
 .popupInfo span{
-  color: rgb(3, 131, 148);
+  color: rgb(6, 168, 168);
 text-decoration: underline;
 text-align: center;
 padding: .5rem;
 }
->>>>>>> 26aa02cc66927a0de01864fd3582db111c20d004:client/src/components/PopupInfo/PopupInfo.css
