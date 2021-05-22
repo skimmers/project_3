@@ -1,16 +1,5 @@
-.popupBody {
+.popupInfo {
     font-size: 14px;
-    background-image: url(../../images/ev-charing-station.jpg);
-    color:#ff1dce;
+    color:black;
     font-family: 'Times New Roman', Times, serif;
-    font-weight: 650;
-   
-
-}
-
-.popupInfo span{
-  color: rgb(3, 131, 148);
-text-decoration: underline;
-text-align: center;
-padding: .5rem;
 }
