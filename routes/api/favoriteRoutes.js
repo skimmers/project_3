@@ -41,14 +41,22 @@ router.get('/:user_id', async (req, res) => {
 
 // create a record
 router.post('/', async (req, res) => {
-    console.log("we hit the route!");
     console.log(req.body);
     console.log(req.session.user_id);
 
     const newFavorite = {
-        favorite_id: req.body.favorite_id,
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
+        title: req.body.title,
+        power: req.body.power,
+        voltage: req.body.voltage,
+        connectionType: req.body.connectionType,
+        address: req.body.address,
+        city: req.body.city,
+        access: req.body.access,
+        stationSite: req.body.stationSite,
+        isFavorite: req.body.isFavorite
     }
+
     console.log(newFavorite);
     try {
         const favoriteData= await Favorite.create(newFavorite);
