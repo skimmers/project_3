@@ -10,18 +10,6 @@ import axios from 'axios';
 export default function StationInfo(props) {
 
   // const [expanded, setExpanded] = React.useState(false);
-  const [favorite, setFavorite] = useState({
-    favorite_id: "",
-    title: "",
-    power: "",
-    voltage: "",
-    connectionType: "",
-    address: "",
-    city: "",
-    access: "",
-    stationSite: "",
-    isFavorite: false
-  });
 
   // const handleExpandClick = () => {
   //   setExpanded(!expanded);
@@ -37,20 +25,8 @@ export default function StationInfo(props) {
     })
   }
 
-  // click handler that will save information when a user clicks the favorites icon
+  // click handler that will save information to DB when a user clicks the favorites icon
   const favoritesHandler = () => {
-    console.log("clicked!");
-    setFavorite({
-      title: props.location.AddressInfo.Title,
-      power: props.location.Connections[0].PowerKW,
-      voltage: props.location.Connections[0].Voltage,
-      connectionType: props.location.Connections[0].ConnectionTypeID,
-      address: props.location.AddressInfo.AddressLine1,
-      city: props.location.AddressInfo.Town,
-      access: props.location.AddressInfo.AccessComments,
-      stationSite: props.location.AddressInfo.RelatedURL,
-      isFavorite: true
-    });
     saveFavorite(props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
   }
 
