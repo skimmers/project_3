@@ -8,10 +8,10 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
       defaultZoom={13}
       defaultCenter={{ lat: props.initPosition.lat, lng: props.initPosition.lng }}
     >
-      {props.isMarkerShown && props.location.map(loc => {
+      {props.isMarkerShown && props.location.map((loc, index) => {
         const [evStation, setEvStation] = useState(null);
         return (
-          <Marker key={loc.UUID}
+          <Marker key={index}
            position={{lat: loc.AddressInfo.Latitude,
             lng: loc.AddressInfo.Longitude}} 
             onClick={() => {
