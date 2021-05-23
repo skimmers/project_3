@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './PopupInfo.css';
-import { Link } from 'react-router-dom';
 import { Icon, InlineIcon } from '@iconify/react';
 import favoriteIcon from '@iconify-icons/mi/favorite';
 import axios from 'axios';
@@ -8,15 +7,9 @@ import axios from 'axios';
 
 
 export default function StationInfo(props) {
-
-  // const [expanded, setExpanded] = React.useState(false);
-
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
   // Axios call to our database to set the favorite's information
-  const saveFavorite = (title, power, voltage, connectionType, address, city, access, stationSite, isFavorite) => {
-    axios.post("/api/favorite", { title, power, voltage, connectionType, address, city, access, stationSite, isFavorite })
+  const saveFavorite = (location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite) => {
+    axios.post("/api/favorite", {location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite })
     .then(res => {
       console.log(res);
     })
@@ -27,7 +20,7 @@ export default function StationInfo(props) {
 
   // click handler that will save information to DB when a user clicks the favorites icon
   const favoritesHandler = () => {
-    saveFavorite(props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
+    saveFavorite(props.location.UUID, props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
   }
 
   return (
@@ -39,8 +32,12 @@ export default function StationInfo(props) {
       <p className="popupInfo"><span>Address:</span> {props.location.AddressInfo.AddressLine1}</p>
       <p className="popupInfo"><span>City:</span> {props.location.AddressInfo.Town}</p>
       <p className="popupInfo"><span>Access:</span> {props.location.AddressInfo.AccessComments}</p>
-      <button onClick={favoritesHandler}><i className="far fa-star"></i></button>
-      <a href={props.location.AddressInfo.RelatedURL} target="_blank">Station Provider Site</a>
+      <div>
+        <button onClick={favoritesHandler}><i className="far fa-star"></i></button>
+      </div>
+      <div>
+        <a href={props.location.AddressInfo.RelatedURL} target="_blank">Station Provider Site</a>
+      </div>
     </div> 
   )
 }
