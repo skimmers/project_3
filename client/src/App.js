@@ -9,6 +9,7 @@ import {  Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import SearchPage from '../src/pages/SearchPage.js';
 import Signup from './components/Signup/Signup';
+import Map2 from './components/Map2.js'
 import axios from 'axios';
 
 
