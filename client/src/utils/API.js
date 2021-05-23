@@ -10,5 +10,13 @@ export default {
 
   checkLoginStatus: function () {
     return axios.get('/api/users/authcheck');
+  },
+
+  getFavorites: function () {
+    return axios.get('/api/favorite');
+  },
+
+  deleteFavorite: function (id) {
+    return axios.delete(`/api/favorite/${id}`)
   }
 };
