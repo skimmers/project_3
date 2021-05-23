@@ -51,7 +51,7 @@ export default function StationInfo(props) {
       stationSite: props.location.AddressInfo.RelatedURL,
       isFavorite: true
     });
-    saveFavorite(favorite);
+    saveFavorite(props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
   }
 
   return (
