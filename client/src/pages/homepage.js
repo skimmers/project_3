@@ -46,6 +46,8 @@ function Map() {
    
   }, [initPosition.lat, initPosition.lng]);
 
+
+  // ********** Right now, the search is working to generate markers for a given search result, but the useEffect() function is causing the page to rerender to the user's geolocation.. Need to find a way to fix this.. ************* //
   // function used to handle a user search
   const handleSearch = (search) => {
 
