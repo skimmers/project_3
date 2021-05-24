@@ -4,7 +4,7 @@ import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
 import StationInfo from './components/Favorites/Favorites';
 import Login from './components/Login/Login';
-// import SearchBar from './components/SearchBar/SearchBar';
+import FavoritesPage from "../src/pages/FavoritesPage";
 import {  Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import SearchPage from '../src/pages/SearchPage.js';
@@ -44,15 +44,15 @@ function App() {
             </Route>
             <Route path="/login" exact component={Login}></Route>
             <Route path="/signup" exact component={Signup}></Route>
-            <Route path="/station" exact component={StationInfo}>
-              <StationInfo />
+            <Route path="/favorites" exact>
+              <FavoritesPage />
             </Route>
             <Route path="/map" exact>
               <Map />
             </Route>
-            <Route path="/search" exact>
+            {/* <Route path="/search" exact>
               <SearchPage />
-            </Route>
+            </Route> */}
           </Switch>
 
         </div>
