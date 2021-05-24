@@ -8,7 +8,6 @@ function Map() {
   const [location, setLocation] = useState([]);
   const [initPosition, setInitPosition] = useState({});
   // Will use selectedStation once we get pop up window working
-  // const [selectedStation, setSelectedStation] = useState({})
 
   //initialize the history object for redirecting purposes
   const history = useHistory();
