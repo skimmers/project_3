@@ -22,10 +22,10 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
               setEvStation(null);
            }}
 
-           position={{
-            lat: evStation.latitude,
-            lng: evStation.longitude
-          }}
+          //  position={{
+          //   lat: evStation.AddressInfo.Latitude,
+          //   lng: evStation.AddressInfo.Longitude
+          // }}
            >
               <PopupInfo location={loc} />
           </InfoWindow>)}

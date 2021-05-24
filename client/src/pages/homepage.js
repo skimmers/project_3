@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import MapWithMarkers from "../components/Map/Map";
 import {useHistory} from "react-router-dom";
+require('dotenv').config();
 
 function Map() {
   const [location, setLocation] = useState([]);
   const [initPosition, setInitPosition] = useState({});
   // Will use selectedStation once we get pop up window working
-  // const [selectedStation, setSelectedStation] = useState({})
 
   //initialize the history object for redirecting purposes
   const history = useHistory();
@@ -63,13 +63,16 @@ function Map() {
   //       .catch(err => console.log(err));
   //     }
   //   }
+  
+  // Google API Key from .env file
+  const GoogleAPIKey = process.env.GOOGLE_API_KEY;
 
   return (
     <MapWithMarkers
       isMarkerShown
       location={location}
       initPosition={initPosition}
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
+      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIKey}&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic`}
       loadingElement={<div style={{ height: `100%` }} />}
       containerElement={<div style={{ height: `400px` }} />}
       mapElement={<div style={{ height: `100%` }} />}

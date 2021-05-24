@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 
     try {
         const favoriteData = await Favorite.findAll({
-            include: [{ model: Station }],
+            include: [{ model: User }],
           
             where: {
                 user_id: req.session.user_id,
@@ -18,22 +18,6 @@ router.get('/', async (req, res) => {
         const favorited = favoriteData.map(station => station.get({plain: true})); 
         console.log(favorited);
         res.status(200).json(favorited);
-    } catch (err) {
-        //res.redirect("login");
-    }
-});
-
-router.get('/:user_id', async (req, res) => {
-    try {
-        const userFave = await Favorite.findByPk(req.params.user_id, {
-            include: [{ model: Station, through: Favorite, as: 'user_favorite' }]
-
-        })
-        if (userFave) {
-            res.status(404).json({ message: 'What Favorites??' });
-            return;
-        }
-        res.status(200).json(userFave);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -46,6 +30,7 @@ router.post('/', async (req, res) => {
 
     const newFavorite = {
         user_id: req.session.user_id,
+        location_id: req.body.location_id,
         title: req.body.title,
         power: req.body.power,
         voltage: req.body.voltage,
@@ -69,15 +54,22 @@ router.post('/', async (req, res) => {
 // delete a record
 router.delete('/:id', async (req, res) => {
     try {
+        console.log(req.body)
         const favoriteData = await Favorite.destroy({
-            where: { id: req.params.id }
+            where: 
+            { 
+                id: req.params.id,
+            }
         });
         if (!favoriteData) {
             res.status(404).json({ message: "No favorite/user combo exists with that id" });
             return;
         }
+
+        res.status(200).json(favoriteData);
+        
     } catch (err) {
-        res.status(500), json(err);
+        res.status(500).json(err);
     }
 });
 
