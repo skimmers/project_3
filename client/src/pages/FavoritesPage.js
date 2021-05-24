@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Favorites from "../components/Favorites/Favorites";
 import { useHistory } from "react-router-dom";
-import { Container } from "@material-ui/core";
-
-// ********* Having Issues getting the favorites to map out and create a new card for each one liked. Maybe someone else can take a look at this when they hop on. **********************
 
 function FavoritesPage() {
     const [favorite, setFavorite] = useState([]);
@@ -12,10 +9,8 @@ function FavoritesPage() {
     //initialize the history object for redirecting purposes
     const history = useHistory();
   
-    // function that calls client side API to retrieve user's current location so we can set a start point for the map
-    // Setting our component's initial states
+    // function that sends REST API call to our DB to retrieve a given user's favorited stations and save it to state
     const getData = () => {
-      // Loads all API locations to be called in useEffect
       API.getFavorites()
       .then((res) => {
         console.log(res.data);
@@ -32,7 +27,7 @@ function FavoritesPage() {
             //if we are not logged in, then redirect
             history.push("/login");
         } else {
-          //otherwise, load the map
+          //otherwise, load the favorites page
           getData();
         }
       });
@@ -42,28 +37,30 @@ function FavoritesPage() {
     // click handler to remove a favorited from the FavoritesPage
     const handleDelete = async (index) => {
 
-      // creates a new array with all data that does not match the deleted card, and saves it to state.
-      const newList = favorite.filter(fav => fav.location_id !== index);
-      setFavorite(newList);
-
-      // creates a new array with only the location_id value that matches the deleted card. We can then use this variable to delete the information from our DB in the deleteFavorite API REST call.
+      // creates a new array with only the location_id value that matches the deleted card's location_id. We can then use this variable to delete the information from our DB in the deleteFavorite API REST call.
       const filteredFavorite = favorite.filter(fav => fav.id == index);
-      console.log(filteredFavorite);
       
       // API call to delete the favorited station from the DB
       const res = await API.deleteFavorite(filteredFavorite[0].id)
       console.log(res);
+
+      // If the request to DELETE favorite from server is successful..
       if (res.status === 200) {
-        console.log("Clicked!" + res.status);
         alert("Successfully removed from favorites");
+
+         // then save the newly filtered data and set the new state
+        const newList = favorite.filter(fav => fav.id !== index);
+        setFavorite(newList);
+        
+      // otherwise, alert user that the favorited station was not removed
       } else {
-        alert('Failed to delete post.');
+        console.log(res.status);
+        alert('Failed to remove from favorites.');
       }    
     }
 
     // variable that will hold our newly mapped data in order to render a new Favorite card for each item
     const favoritesCard = favorite.map((fav, index) => {
-      console.log(fav.id)
       if (fav) {
         return (
           <Favorites 
