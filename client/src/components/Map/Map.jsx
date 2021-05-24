@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from "react-google-maps";
 import PopupInfo from "../PopupInfo/PopupInfo";
-import StationInfo from '../Favorites/Favorites';
-import { Link, BrowserRouter } from 'react-router-dom';
 
 const MapWithMarkers = withScriptjs(withGoogleMap(props =>
 
@@ -10,45 +8,28 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
       defaultZoom={13}
       defaultCenter={{ lat: props.initPosition.lat, lng: props.initPosition.lng }}
     >
-      {props.isMarkerShown && props.location.map(loc => {
+      {props.isMarkerShown && props.location.map((loc, index) => {
         const [evStation, setEvStation] = useState(null);
-
-      //   useEffect(() => {
-      //     const listener = e => {
-      //        if (e.key === "Escape") {
-      //           setEvStation(null);
-      //        }
-      //     };
-      //     window.addEventListener("keydown", listener);
-      //     return () => {
-      //        window.removeEventListener("keydown", listener);
-      //     };
-      //  }, 
-      //  []);
-
         return (
-          <Marker key={loc.ID}
+          <Marker key={index}
            position={{lat: loc.AddressInfo.Latitude,
             lng: loc.AddressInfo.Longitude}} 
             onClick={() => {
               setEvStation(loc);
             }}
-          >{ evStation && (       <InfoWindow 
+          >{ evStation && ( <InfoWindow 
             onCloseClick={() => {
               setEvStation(null);
            }}
 
-           position={{
-            lat: evStation.latitude,
-            lng: evStation.longitude
-         }}
+          //  position={{
+          //   lat: evStation.AddressInfo.Latitude,
+          //   lng: evStation.AddressInfo.Longitude
+          // }}
            >
               <PopupInfo location={loc} />
-        </InfoWindow>)}
-  
-
-
-          </Marker>
+          </InfoWindow>)}
+        </Marker>
         )
       })}
     </GoogleMap>

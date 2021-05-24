@@ -1,125 +1,43 @@
 import React from 'react';
 import './PopupInfo.css';
-import { Link } from 'react-router-dom';
+import { Icon, InlineIcon } from '@iconify/react';
+import favoriteIcon from '@iconify-icons/mi/favorite';
+import axios from 'axios';
+
 
 
 export default function StationInfo(props) {
+  // Axios call to our database to set the favorite's information
+  const saveFavorite = (location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite) => {
+    axios.post("/api/favorite", {location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  }
 
-  // const [expanded, setExpanded] = React.useState(false);
-
-  // const handleExpandClick = () => {
-  //   setExpanded(!expanded);
-  // };
-
-  console.log(props)
+  // click handler that will save information to DB when a user clicks the favorites icon
+  const favoritesHandler = () => {
+    saveFavorite(props.location.UUID, props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
+  }
 
   return (
-<div className="popupBody">
+    <div className="popupBody">
       <p className="popupInfo"><span>Title:</span> {props.location.AddressInfo.Title}</p>
       <p className="popupInfo"><span>Power/KW:</span> {props.location.Connections[0].PowerKW}</p>
       <p className="popupInfo"><span>Voltage:</span> {props.location.Connections[0].Voltage}</p>
-      <p className="popupInfo"><span>Connection Type:</span> {props.location.Connections[0].CommectionTypeID}</p>
+      <p className="popupInfo"><span>Connection Type:</span> {props.location.Connections[0].ConnectionTypeID}</p>
       <p className="popupInfo"><span>Address:</span> {props.location.AddressInfo.AddressLine1}</p>
       <p className="popupInfo"><span>City:</span> {props.location.AddressInfo.Town}</p>
       <p className="popupInfo"><span>Access:</span> {props.location.AddressInfo.AccessComments}</p>
-      {/* <button></button> */}
-      <a href={props.location.AddressInfo.RelatedURL} target="_blank">Station Provider Site</a>
-    
-
-</div>
-
-
-    // <Card className={classes.root}>
-    //   <CardHeader
-    //     avatar={
-    //       <Avatar aria-label="recipe" className={classes.avatar}>
-    //         R
-    //       </Avatar>
-    //     }
-    //     action={
-    //       <IconButton aria-label="settings">
-    //         <MoreVertIcon />
-    //       </IconButton>
-    //     }
-    //     title="Shrimp and Chorizo Paella"
-    //     subheader="September 14, 2016"
-    //   />
-    //   <CardMedia
-    //     className={classes.media}
-    //     image="/static/images/cards/paella.jpg"
-    //     title="Paella dish"
-    //   />
-    //   <CardContent>
-    //     <Typography variant="body2" color="textSecondary" component="p">
-    //       This impressive paella is a perfect party dish and a fun meal to cook together with your
-    //       guests. Add 1 cup of frozen peas along with the mussels, if you like.
-    //     </Typography>
-    //   </CardContent>
-    //   <CardActions disableSpacing>
-    //     <IconButton aria-label="add to favorites">
-    //       <FavoriteIcon />
-    //     </IconButton>
-    //     <IconButton aria-label="share">
-    //       <ShareIcon />
-    //     </IconButton>
-    //     <IconButton
-    //       className={clsx(classes.expand, {
-    //         [classes.expandOpen]: expanded,
-    //       })}
-    //       onClick={handleExpandClick}
-    //       aria-expanded={expanded}
-    //       aria-label="show more"
-    //     >
-    //       <ExpandMoreIcon />
-    //     </IconButton>
-    //   </CardActions>
-    //   <Collapse in={expanded} timeout="auto" unmountOnExit>
-    //     <CardContent>
-    //       <Typography paragraph>Method:</Typography>
-    //       <Typography paragraph>
-    //         Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-    //         minutes.
-    //       </Typography>
-    //       <Typography paragraph>
-    //         Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-    //         heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-    //         browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-    //         and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-    //         pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-    //         saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-    //       </Typography>
-    //       <Typography paragraph>
-    //         Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-    //         without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-    //         medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-    //         again without stirring, until mussels have opened and rice is just tender, 5 to 7
-    //         minutes more. (Discard any mussels that don’t open.)
-    //       </Typography>
-    //       <Typography>
-    //         Set aside off of the heat to let rest for 10 minutes, and then serve.
-    //       </Typography>
-    //     </CardContent>
-    //   </Collapse>
-    // </Card>
-  );
+      <div>
+        <button onClick={favoritesHandler}><i className="far fa-star"></i></button>
+      </div>
+      <div>
+        <a href={props.location.AddressInfo.RelatedURL} target="_blank">Station Provider Site</a>
+      </div>
+    </div> 
+  )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default FavoritePage;

@@ -1,12 +1,7 @@
 import React, { Component, useState } from "react";
-// import Login from "../Login/Login";
 import "./signup.css";
-// import Popup from "../PopUp/PopUp";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
-
-
 
 function SignUp() {
     const [firstName, setFirstName] = useState('');
@@ -37,6 +32,7 @@ function SignUp() {
             if (e.response && e.response.data) {
                 const errorMessage = e.response.data.message;
                 //do something with our error message to tell the user what happened
+                alert(errorMessage);
             }
         });
 
