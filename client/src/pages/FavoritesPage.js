@@ -7,18 +7,21 @@ import { Container } from "@material-ui/core";
 // ********* Having Issues getting the favorites to map out and create a new card for each one liked. Maybe someone else can take a look at this when they hop on. **********************
 
 function FavoritesPage() {
-    const [favorite, setFavorite] = useState({});
+    const [favorite, setFavorite] = useState([]);
   
     //initialize the history object for redirecting purposes
     const history = useHistory();
   
     // function that calls client side API to retrieve user's current location so we can set a start point for the map
     // Setting our component's initial states
-    const getData = async () => {
+    const getData = () => {
       // Loads all API locations to be called in useEffect
-      const res = await API.getFavorites()
-      console.log(res.data);
-      setFavorite(res.data);
+      API.getFavorites()
+      .then((res) => {
+        console.log(res.data);
+        setFavorite(res.data);
+      })
+      .catch(e => console.log(e));
     };
   
     useEffect(() => {
@@ -37,31 +40,34 @@ function FavoritesPage() {
     }, []);
   
     // click handler to remove a favorited from the FavoritesPage
-    function handleDelete() {
+    function handleDelete(index) {
+      // let filteredFavorite = favorite.filter(fav => fav.location_id !== fav.index);
+      // setFavorite({ favorite_id: filteredFavorite.favorite_id });
+      //   // API call to delete the favorited station from the DB
+      //   console.log(filteredFavorite)
+      //   API.deleteFavorite(favorite.location_id)
+      //   .then((res) => {
+      //     console.log(res.data)
 
-        // API call to delete the favorited station from the DB
-        API.deleteFavorite(favorite.location_id)
-        .then((res) => {
-          console.log(res.data)
-        })
-        .catch(err => console.log(err));
+      //   })
+      //   .catch(err => console.log(err));
+      console.log("Clicked!");
     }
 
-    // Variable that holds all of the mapped locations retrieved from our DB
-    // const mappedFavorites = () => {
-    //     for (let i=0; i<favorite.length; i++) {
-    //         {props.favorite.map((fav, index) => {
-    //             return (
-    //                 <Favorites key={index} favorite={fav} onclick={handleDelete}/>
-    //             )
-    //         })}
-    //     }
-    // }
+    // variable that will hold our newly mapped data in order to render a new Favorite card for each item
+    const favoritesCard = favorite.map((fav, index) => {
+      if (fav) {
+        return (
+          <Favorites key={index} favorite={fav} onClick={handleDelete} />
+        )
+      }
+    });
+    
   
     return (
-      <Container>
-        <Favorites favorite={favorite} />
-      </Container>
+      <div>
+        {favoritesCard}
+      </div>
     );
   }
   
