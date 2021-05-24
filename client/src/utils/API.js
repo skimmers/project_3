@@ -22,5 +22,17 @@ export default {
   // Deletes a favorited station for a given user
   deleteFavorite: function (id) {
     return axios.delete(`/api/favorite/${id}`)
-  }
+  },
+
+  // getGeoCode: function(searchInput) {
+  //   // Get latitude & longitude from address.
+  //   Geocode.fromAddress(searchInput).then(
+  //     (response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       console.log(lat, lng);
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     });
+  // }
 };
