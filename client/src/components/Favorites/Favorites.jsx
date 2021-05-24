@@ -94,7 +94,9 @@ export default function FavoritesInfo(props) {
           <ExpandMoreIcon />
         </IconButton>
         <IconButton aria-label="delete">
-          <DeleteIcon onClick={props.onClick}/>
+          <DeleteIcon 
+            onClick={props.handleDelete}
+          />
       </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

@@ -27,7 +27,7 @@ function FavoritesPage() {
     useEffect(() => {
       //code that will check our login status and return an object that is either true or false for "logged_in"
       API.checkLoginStatus().then(res => {
-        console.log(res)
+        console.log(res);
         if (res.data && !res.data.logged_in) {
             //if we are not logged in, then redirect
             history.push("/login");
@@ -40,25 +40,36 @@ function FavoritesPage() {
     }, []);
   
     // click handler to remove a favorited from the FavoritesPage
-    function handleDelete(index) {
-      // let filteredFavorite = favorite.filter(fav => fav.location_id !== fav.index);
-      // setFavorite({ favorite_id: filteredFavorite.favorite_id });
-      //   // API call to delete the favorited station from the DB
-      //   console.log(filteredFavorite)
-      //   API.deleteFavorite(favorite.location_id)
-      //   .then((res) => {
-      //     console.log(res.data)
+    const handleDelete = async (index) => {
 
-      //   })
-      //   .catch(err => console.log(err));
-      console.log("Clicked!");
+      // creates a new array with all data that does not match the deleted card, and saves it to state.
+      const newList = favorite.filter(fav => fav.location_id !== index);
+      setFavorite(newList);
+
+      // creates a new array with only the location_id value that matches the deleted card. We can then use this variable to delete the information from our DB in the deleteFavorite API REST call.
+      const filteredFavorite = favorite.filter(fav => fav.id == index);
+      console.log(filteredFavorite);
+      
+      // API call to delete the favorited station from the DB
+      const res = await API.deleteFavorite(filteredFavorite[0].id)
+      console.log(res);
+      if (res.status === 200) {
+        console.log("Clicked!" + res.status);
+        alert("Successfully removed from favorites");
+      } else {
+        alert('Failed to delete post.');
+      }    
     }
 
     // variable that will hold our newly mapped data in order to render a new Favorite card for each item
     const favoritesCard = favorite.map((fav, index) => {
+      console.log(fav.id)
       if (fav) {
         return (
-          <Favorites key={index} favorite={fav} onClick={handleDelete} />
+          <Favorites 
+            key={index} 
+            favorite={fav} 
+            handleDelete={() => handleDelete(fav.id)} />
         )
       }
     });
