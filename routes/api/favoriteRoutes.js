@@ -54,15 +54,22 @@ router.post('/', async (req, res) => {
 // delete a record
 router.delete('/:id', async (req, res) => {
     try {
+        console.log(req.body)
         const favoriteData = await Favorite.destroy({
-            where: { id: req.body.id }
+            where: 
+            { 
+                id: req.params.id,
+            }
         });
         if (!favoriteData) {
             res.status(404).json({ message: "No favorite/user combo exists with that id" });
             return;
         }
+
+        res.status(200).json(favoriteData);
+        
     } catch (err) {
-        res.status(500), json(err);
+        res.status(500).json(err);
     }
 });
 
