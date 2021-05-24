@@ -24,7 +24,7 @@
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
-    "dotenv": "^9.0.0",
+    "dotenv": "^9.0.2",
     "express": "^4.16.3",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
