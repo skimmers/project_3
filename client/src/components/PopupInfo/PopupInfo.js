@@ -8,8 +8,8 @@ import axios from 'axios';
 
 export default function StationInfo(props) {
   // Axios call to our database to set the favorite's information
-  const saveFavorite = (location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite) => {
-    axios.post("/api/favorite", {location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite })
+  const saveFavorite = (location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite, latitude, longitude) => {
+    axios.post("/api/favorite", {location_id, title, power, voltage, connectionType, address, city, access, stationSite, isFavorite, latitude, longitude })
     .then(res => {
       console.log(res);
     })
@@ -20,7 +20,7 @@ export default function StationInfo(props) {
 
   // click handler that will save information to DB when a user clicks the favorites icon
   const favoritesHandler = () => {
-    saveFavorite(props.location.UUID, props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true);
+    saveFavorite(props.location.UUID, props.location.AddressInfo.Title, props.location.Connections[0].PowerKW, props.location.Connections[0].Voltage, props.location.Connections[0].ConnectionTypeID, props.location.AddressInfo.AddressLine1, props.location.AddressInfo.Town, props.location.AddressInfo.AccessComments, props.location.AddressInfo.RelatedURL, true, props.location.AddressInfo.latitude, props.location.AddressInfo.longitude);
   }
 
   return (
