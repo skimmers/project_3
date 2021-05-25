@@ -3,6 +3,20 @@ import "./PopupInfo.css";
 import axios from "axios";
 
 export default function StationInfo(props) {
+
+  // const changeColorHandler = (e) => {
+  //   const id = e.target.id;
+  //   this.props.addFavorisAction(id)
+  //   const newLikeState = !this.state.backgroundColor[id]
+  //   const newBackgroundColorList = {...this.state.backgroundColor, [id]: newLikeState }
+
+  //   this.setState({
+  //           backgroundColor: newBackgroundColorList 
+  //   })
+  //     }
+  
+
+
   // Axios call to our database to set the favorite's information
   const saveFavorite = (
     location_id,
@@ -59,6 +73,8 @@ export default function StationInfo(props) {
     );
   };
 
+  
+ 
   return (
     <div className="popupBody">
       <p className="popupInfo">
@@ -85,7 +101,10 @@ export default function StationInfo(props) {
       </p>
       <div>
         {/* star to save it */}
-        <button onClick={favoritesHandler}>
+        <button onClick={
+          favoritesHandler
+          // changeColorHandler();
+          }>
           <i className="far fa-star"></i>
         </button>
       </div>
@@ -96,4 +115,7 @@ export default function StationInfo(props) {
       </div>
     </div>
   );
+
 }
+
+
