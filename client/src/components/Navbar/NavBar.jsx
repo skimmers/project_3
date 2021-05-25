@@ -31,8 +31,8 @@ function NavBar() {
                          </NavLink>
                     </li>
                     {/* <li className="nav-item">
-                        <NavLink to="/login" exact activeClassName="active">
-                            Login
+                        <NavLink to="/logout" exact activeClassName="active">
+                            Logout
                          </NavLink>
                     </li> */}
                 

@@ -13,3 +13,8 @@ text-decoration: underline;
 text-align: center;
 padding: .5rem;
 }
+
+.yellow{
+  background-color: black;
+  color: white;
+}
