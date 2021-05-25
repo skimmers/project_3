@@ -17,8 +17,8 @@ export default function StationInfo(props) {
     access,
     stationSite,
     isFavorite,
-    Latitude,
-    Longitude
+    latitude,
+    longitude
   ) => {
     axios
       .post("/api/favorite", {
@@ -32,8 +32,8 @@ export default function StationInfo(props) {
         access,
         stationSite,
         isFavorite,
-        Latitude,
-        Longitude
+        latitude,
+        longitude
       })
       .then((res) => {
         console.log(res);

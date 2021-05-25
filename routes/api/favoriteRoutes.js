@@ -39,7 +39,9 @@ router.post('/', async (req, res) => {
         city: req.body.city,
         access: req.body.access,
         stationSite: req.body.stationSite,
-        isFavorite: req.body.isFavorite
+        isFavorite: req.body.isFavorite,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
     }
 
     console.log(newFavorite);
