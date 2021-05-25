@@ -1,7 +1,5 @@
 import React from "react";
 import "./PopupInfo.css";
-import { Icon, InlineIcon } from "@iconify/react";
-import favoriteIcon from "@iconify-icons/mi/favorite";
 import axios from "axios";
 
 export default function StationInfo(props) {
