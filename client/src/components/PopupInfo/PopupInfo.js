@@ -1,7 +1,5 @@
 import React from "react";
 import "./PopupInfo.css";
-import { Icon, InlineIcon } from "@iconify/react";
-import favoriteIcon from "@iconify-icons/mi/favorite";
 import axios from "axios";
 
 export default function StationInfo(props) {
@@ -17,8 +15,8 @@ export default function StationInfo(props) {
     access,
     stationSite,
     isFavorite,
-    Latitude,
-    Longitude
+    latitude,
+    longitude
   ) => {
     axios
       .post("/api/favorite", {
@@ -32,8 +30,8 @@ export default function StationInfo(props) {
         access,
         stationSite,
         isFavorite,
-        Latitude,
-        Longitude
+        latitude,
+        longitude
       })
       .then((res) => {
         console.log(res);
@@ -92,7 +90,7 @@ export default function StationInfo(props) {
         </button>
       </div>
       <div>
-        <a href={props.location.AddressInfo.RelatedURL} target="_blank">
+        <a href={props.location.AddressInfo.RelatedURL} target="_blank" rel="noreferrer" alt="Electric vehicle charging station." >
           Station Provider Site
         </a>
       </div>

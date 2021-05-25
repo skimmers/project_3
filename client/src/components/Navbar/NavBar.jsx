@@ -24,22 +24,11 @@ function NavBar() {
                         <NavLink to="/favorites" exact activeClassName="active">
                            Favorites
                          </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink to="/search" exact activeClassName="active">
-                            Search
-                         </NavLink>
-                    </li>
-                    {/* <li className="nav-item">
-                        <NavLink to="/login" exact activeClassName="active">
-                            Login
-                         </NavLink>
-                    </li> */}
-                
+                    </li>                
                 </ul>
                 <footer className="footer">
                     <p>
-                        @2021 Team Name
+                        @2021 ElectricAve
                     </p>
                 </footer>
             </nav>
