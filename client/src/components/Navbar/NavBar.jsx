@@ -24,6 +24,7 @@ function NavBar() {
                         <NavLink to="/favorites" exact activeClassName="active">
                            Favorites
                          </NavLink>
+<<<<<<< thisWorks
                     </li>
                     <li className="nav-item">
                         <NavLink to="/search" exact activeClassName="active">
@@ -36,10 +37,13 @@ function NavBar() {
                          </NavLink>
                     </li> */}
                 
+=======
+                    </li>                
+>>>>>>> main
                 </ul>
                 <footer className="footer">
                     <p>
-                        @2021 Team Name
+                        @2021 ElectricAve
                     </p>
                 </footer>
             </nav>
