@@ -58,8 +58,8 @@ function Map() {
       // If response is ok, destructure the results, and set the new InitPosition state to the result lat and lng
       const { lat, lng } = res.results[0].geometry.location;
       console.log(lat, lng);
-      setInitPosition({ lat: lat, lng: lng });
       API.getLocation(lat, lng);
+      setInitPosition({ lat: lat, lng: lng });
     }, (error) => {
       console.error(error);
     });
