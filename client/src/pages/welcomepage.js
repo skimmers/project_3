@@ -1,16 +1,8 @@
-import React,  { useState } from 'react';
-import Popup from "../components/PopUp/PopUp";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from '../components/Login/Login';
-import Signup from '../components/Signup/Signup';
 
 
 function WelcomePage() {
-// this is for the popup so it can change its state and work
-    // const [buttonPopup, setButtonPopup] = useState(false);
-    // const [signupForm, setSignupForm] = useState(false);
- 
-
     return (
         <div className="WelcomePage">
             <header className="hero-header">
@@ -25,9 +17,8 @@ function WelcomePage() {
                 <button  className="sign-in-btn rounded-pill">Sign In</button>
                 </Link>
                 <Link to="/signup" >
-            <button className="sign-up-btn rounded-pill">Sign Up</button>
+                <button className="sign-up-btn rounded-pill">Sign Up</button>
                 </Link>
-           
            </header>
 
         </div>

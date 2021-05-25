@@ -2,14 +2,11 @@ import './App.scss';
 import NavBar from './components/Navbar/NavBar';
 import Map from '../src/pages/homepage';
 import WelcomePage from '../src/pages/welcomepage';
-import StationInfo from './components/Favorites/Favorites';
 import Login from './components/Login/Login';
 import FavoritesPage from "../src/pages/FavoritesPage";
-import {  Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
-import SearchPage from '../src/pages/SearchPage.js';
 import Signup from './components/Signup/Signup';
-import Map2 from './components/Map2.js'
 import axios from 'axios';
 
 
@@ -50,9 +47,6 @@ function App() {
             <Route path="/map" exact>
               <Map />
             </Route>
-            {/* <Route path="/search" exact>
-              <SearchPage />
-            </Route> */}
           </Switch>
 
         </div>

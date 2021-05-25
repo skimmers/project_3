@@ -90,7 +90,7 @@ export default function StationInfo(props) {
         </button>
       </div>
       <div>
-        <a href={props.location.AddressInfo.RelatedURL} target="_blank">
+        <a href={props.location.AddressInfo.RelatedURL} target="_blank" rel="noreferrer" alt="Electric vehicle charging station." >
           Station Provider Site
         </a>
       </div>
