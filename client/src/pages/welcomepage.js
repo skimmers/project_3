@@ -1,8 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Login from '../components/Login/Login';
+import Signup from '../components/Signup/Signup';
+// import Logout from '../components/Logout/Logout';
+
 
 function WelcomePage() {
+// this is for the popup so it can change its state and work
+    // const [buttonPopup, setButtonPopup] = useState(false);
+    // const [signupForm, setSignupForm] = useState(false);
+
+ 
+
+
+
+
+function WelcomePage() {
+
     return (
         <div className="WelcomePage">
             <header className="hero-header">
@@ -19,6 +34,9 @@ function WelcomePage() {
                 <Link to="/signup" >
                 <button className="sign-up-btn rounded-pill">Sign Up</button>
                 </Link>
+
+                {/* <Logout /> */}
+               
            </header>
 
         </div>
