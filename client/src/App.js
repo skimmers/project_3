@@ -7,7 +7,7 @@ import FavoritesPage from "../src/pages/FavoritesPage";
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Signup from './components/Signup/Signup';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
 
   // axios.defaults.proxy.host = "http://localhost:3001";
   // axios.defaults.baseURL = "http://localhost:3001";
-  console.log(axios.defaults.baseURL)
+  // console.log(axios.defaults.baseURL)
 
 
   const navClick = () => {
