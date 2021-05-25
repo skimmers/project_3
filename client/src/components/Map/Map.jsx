@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GoogleMap, Marker, withScriptjs, withGoogleMap, InfoWindow } from "react-google-maps";
 import PopupInfo from "../PopupInfo/PopupInfo";
 
@@ -6,7 +6,7 @@ const MapWithMarkers = withScriptjs(withGoogleMap(props =>
 
     <GoogleMap
       defaultZoom={13}
-      defaultCenter={{ lat: props.initPosition.lat, lng: props.initPosition.lng }}
+      center={{ lat: props.center.lat, lng: props.center.lng }}
     >
       {props.isMarkerShown && props.location.map((loc, index) => {
         const [evStation, setEvStation] = useState(null);

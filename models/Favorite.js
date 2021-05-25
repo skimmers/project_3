@@ -49,6 +49,14 @@ Favorite.init(
     isFavorite: {
       type: DataTypes.BOOLEAN
     },
+    latitude: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    longitude: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     // station_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
