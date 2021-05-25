@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import MapWithMarkers from "../components/Map/Map";
 import {useHistory} from "react-router-dom";
+import SearchBar from "../components/SearchBar/SearchBar";
+import Geocode from "react-geocode";
+
 require('dotenv').config();
 
 function Map() {
-  const [location, setLocation] = useState([]);
-  const [initPosition, setInitPosition] = useState({});
-  // Will use selectedStation once we get pop up window working
 
   //initialize the history object for redirecting purposes
   const history = useHistory();
+
+  const [location, setLocation] = useState([]);
+  const [initPosition, setInitPosition] = useState({});
+  const [input, setInput] = useState();
+  
 
   // function that calls client side API to retrieve user's current location so we can set a start point for the map
   // Setting our component's initial states
@@ -41,42 +46,45 @@ function Map() {
    
   }, [initPosition.lat, initPosition.lng]);
 
-  //   function handleInputChange(event) {
-  //     // add code to control the components here
-  //     const { name, value } = event.target;
-  //     const newState = {
-  //       ...formObject,
-  //       [name]: value
-  //     }
 
-  //     setFormObject(newState);
-  //   }
+  // ********** Right now, the search is working to generate markers for a given search result, but the useEffect() function is causing the page to rerender to the user's geolocation.. Need to find a way to fix this.. ************* //
+  // function used to handle a user search
+  const handleSearch = (search) => {
 
-  //   function handleFormSubmit() {
-  //     // add code here to post a new book to the api
-  //     if (formObject.title, formObject.author) {
-  //       API.saveBook(formObject)
-  //       .then((res) => {
-  //         console.log(res.data)
-  //         setFormObject(res.data);
-  //       })
-  //       .catch(err => console.log(err));
-  //     }
-  //   }
-  
+    console.log(search);
+    // Get latitude & longitude from address.
+    Geocode.fromAddress(search)
+    .then((res) => {
+      // If response is ok, destructure the results, and set the new InitPosition state to the result lat and lng
+      const { lat, lng } = res.results[0].geometry.location;
+      console.log(lat, lng);
+      setInitPosition({ lat: lat, lng: lng });
+      API.getLocation(lat, lng);
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
   // Google API Key from .env file
   const GoogleAPIKey = process.env.GOOGLE_API_KEY;
 
   return (
-    <MapWithMarkers
-      isMarkerShown
-      location={location}
-      initPosition={initPosition}
-      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIKey}&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic`}
-      loadingElement={<div style={{ height: `100%` }} />}
-      containerElement={<div style={{ height: `400px` }} />}
-      mapElement={<div style={{ height: `100%` }} />}
+    <div>
+      <SearchBar 
+        handleSearch={handleSearch}
+        setInput={setInput}
+        input={input}
+      />
+      <MapWithMarkers
+        isMarkerShown
+        location={location}
+        initPosition={initPosition}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIKey}&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic`}
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
     />
+    </div>
   );
 }
 
