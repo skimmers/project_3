@@ -32,7 +32,6 @@ function Map() {
     geoLocateUser();
     // Loads all API locations based on initPosition state from geoLocate function
     const res = await API.getLocation(initPosition.lat, initPosition.lng);
-    console.log(res.data);
     setLocation(res.data);
   };
 
@@ -47,7 +46,6 @@ function Map() {
   useEffect(() => {
     //code that will check our login status and return an object that is either true or false for "logged_in"
     API.checkLoginStatus().then(res => {
-      console.log(res)
       if (res.data && !res.data.logged_in) {
           //if we are not logged in, then redirect
           history.push("/login");
@@ -72,14 +70,11 @@ function Map() {
   // function used to handle a user search
   const handleSearch = (search) => {
 
-    console.log(search);
-    console.log(initPosition);
     // Get latitude & longitude from address.
     Geocode.fromAddress(search)
     .then((res) => {
       // If response is ok, destructure the results, and set the new InitPosition state to the result lat and lng
       const { lat, lng } = res.results[0].geometry.location;
-      console.log(lat, lng);
       API.getLocation(lat, lng);
       setInitPosition({ lat: lat, lng: lng });
     }, (error) => {
