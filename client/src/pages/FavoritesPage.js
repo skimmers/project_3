@@ -38,7 +38,7 @@ function FavoritesPage() {
     const handleDelete = async (index) => {
 
       // creates a new array with only the location_id value that matches the deleted card's location_id. We can then use this variable to delete the information from our DB in the deleteFavorite API REST call.
-      const filteredFavorite = favorite.filter(fav => fav.id == index);
+      const filteredFavorite = favorite.filter(fav => fav.id === index);
       
       // API call to delete the favorited station from the DB
       const res = await API.deleteFavorite(filteredFavorite[0].id)

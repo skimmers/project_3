@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import './login.css'
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
  function Login() {
     const [email, setEmail] = useState('');
@@ -52,9 +53,12 @@ import { useHistory } from "react-router-dom";
                  </div>
              </div>
 
-             <button  type="submit" className="login-btn btn-primary btn-block">Submit</button>
+             <button  type="submit" className="login-btn  btn-block">Submit</button>
              <p className="forgot-password text-right">
              </p>
+             <Link to="/signup">
+             <button  type="link" className="login-btn  btn-block">Sign Up</button>
+             </Link>
         </form>
     )
     }
