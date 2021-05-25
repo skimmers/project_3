@@ -10,7 +10,7 @@ function WelcomePage() {
                 Welcome to <span className="electric">Electric</span><span className="ave">Ave</span>
                 </h1> 
                 <p className="intro">
-                    Here at EA we strive to make access to EV charging stations easy...etc.etc..
+                    Here at ElectricAve we strive to make access to EV charging stations easy! No matter where you are in the country.
                 </p>
                 {/* maybe do an ocClick?? */}
                 <Link to="/login" >

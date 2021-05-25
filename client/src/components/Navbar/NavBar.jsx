@@ -28,7 +28,7 @@ function NavBar() {
                 </ul>
                 <footer className="footer">
                     <p>
-                        @2021 Team Name
+                        @2021 ElectricAve
                     </p>
                 </footer>
             </nav>
