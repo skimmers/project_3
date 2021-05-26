@@ -3,6 +3,7 @@ import API from "../utils/API";
 import MapWithMarkers from "../components/Map/Map";
 import {useHistory} from "react-router-dom";
 import SearchBar from "../components/SearchBar/SearchBar";
+import Container from "../components/Container/Container";
 import Geocode from "react-geocode";
 require('dotenv').config();
 
@@ -83,10 +84,10 @@ function Map() {
   }
 
   // Google API Key from .env file
-  const GoogleAPIKey = process.env.GOOGLE_API_KEY;
+  const GoogleAPIKey = "AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic";
 
   return (
-    <div>
+    <Container>
       <SearchBar 
         handleSearch={handleSearch}
         setInput={setInput}
@@ -101,7 +102,7 @@ function Map() {
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
     />
-    </div>
+    </Container>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Container from "../components/Container/Container";
 
 // import Login from '../components/Login/Login';
 // import Signup from '../components/Signup/Signup';
@@ -19,7 +20,8 @@ import { Link } from 'react-router-dom';
 function WelcomePage() {
 
     return (
-        <div className="WelcomePage">
+        <Container>
+        <div className="WelcomePage container-fluid">
             <header className="hero-header">
                 <h1>
                 Welcome to <span className="electric">Electric</span><span className="ave">Ave</span>
@@ -34,12 +36,10 @@ function WelcomePage() {
                 <Link to="/signup" >
                 <button className="sign-up-btn rounded-pill">Sign Up</button>
                 </Link>
-
                 {/* <Logout /> */}
-               
            </header>
-
         </div>
+        </Container>
     )
 }
 
