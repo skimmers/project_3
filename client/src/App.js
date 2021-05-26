@@ -13,12 +13,14 @@ import Map2 from './components/Map2';
 
 
 function App() {
+
   const [navToggle, setNavToggle] = useState(false);
 
   // axios.defaults.proxy.host = "http://localhost:3001";
   // axios.defaults.baseURL = "http://localhost:3001";
   // console.log(axios.defaults.baseURL)
 
+  
 
   const navClick = () => {
     setNavToggle(!navToggle);
