@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import API from "../utils/API";
 import Container from "../components/Container/Container";
-
-// import Login from '../components/Login/Login';
-// import Signup from '../components/Signup/Signup';
-// import Logout from '../components/Logout/Logout';
-
-
-
-//function WelcomePage() {
-// function WelcomePage() {
-// this is for the popup so it can change its state and work
-    // const [buttonPopup, setButtonPopup] = useState(false);
-    // const [signupForm, setSignupForm] = useState(false);
-
-
+import Logout from "../components/Logout/Logout";
+import axios from "axios";
 
 function WelcomePage() {
+
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const logoutHandler = async () => {
+        const res = await axios.post('/api/users/logout');
+        console.log(res);
+        localStorage.clear();
+        setLoggedIn(false);
+      }
+
+    useEffect(() => {
+        API.checkLoginStatus()
+        .then(res => {
+            if (res.data.logged_in) {
+                setLoggedIn(true);
+            } else {
+                setLoggedIn(false);
+            }
+        })
+        .catch(e => console.log(e));
+    });
 
     return (
         <Container>
@@ -29,13 +39,19 @@ function WelcomePage() {
                     Here at ElectricAve we strive to make access to EV charging stations easy! No matter where you are in the country.
                 </p>
                 {/* maybe do an ocClick?? */}
-                <Link to="/login" >
-                <button  className="sign-in-btn rounded-pill">Sign In</button>
-                </Link>
-                <Link to="/signup" >
-                <button className="sign-up-btn rounded-pill">Sign Up</button>
-                </Link>
-                {/* <Logout /> */}
+                {loggedIn ? 
+                <>
+                    <Logout logoutHandler={logoutHandler} />
+                </> :
+                <>
+                    <Link to="/login" >
+                    <button  className="sign-in-btn rounded-pill">Sign In</button>
+                    </Link>
+                    <Link to="/signup" >
+                    <button className="sign-up-btn rounded-pill">Sign Up</button>
+                    </Link>
+                </>
+                }
            </header>
         </div>
         </Container>
