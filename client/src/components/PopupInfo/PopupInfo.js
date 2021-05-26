@@ -57,6 +57,7 @@ export default function StationInfo(props) {
 
   // click handler that will save information to DB when a user clicks the favorites icon
   const favoritesHandler = () => {
+    alert("Successfully saved to your favorites page!");
     saveFavorite(
       props.location.UUID,
       props.location.AddressInfo.Title,

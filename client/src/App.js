@@ -8,16 +8,18 @@ import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Signup from './components/Signup/Signup';
 // import axios from 'axios';
-import Map2 from '../../client/src/components/Map2';
+//import Map2 from '../../client/src/components/Map2';
 
 
 function App() {
+
   const [navToggle, setNavToggle] = useState(false);
 
   // axios.defaults.proxy.host = "http://localhost:3001";
   // axios.defaults.baseURL = "http://localhost:3001";
   // console.log(axios.defaults.baseURL)
 
+  
 
   const navClick = () => {
     setNavToggle(!navToggle);

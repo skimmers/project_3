@@ -17,7 +17,9 @@ function FavoritesPage() {
         console.log(res.data);
         setFavorite(res.data);
       })
-      .catch(e => console.log(e));
+      .catch((e) => {
+        console.log(e)
+      });
     };
   
     useEffect(() => {
@@ -75,7 +77,12 @@ function FavoritesPage() {
   
     return (
       <Container>
-        {favoritesCard}
+        {/* {favoritesCard} */}
+        {favorite.length > 0 ? favoritesCard : 
+          <p className="intro">
+            It doesn't look like you have any favorites saved yet. Navigate to the Map page to save from your favorite EV charging stations!
+          </p>
+        }
       </Container>
     );
   }
