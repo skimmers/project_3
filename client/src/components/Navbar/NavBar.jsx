@@ -24,7 +24,18 @@ function NavBar() {
                         <NavLink to="/favorites" exact activeClassName="active">
                            Favorites
                          </NavLink>
-                    </li>                
+                    </li>
+                    {/*<li className="nav-item">
+                        <NavLink to="/search" exact activeClassName="active">
+                            Search
+                         </NavLink>
+                    </li>
+                    {/* <li className="nav-item">
+                        <NavLink to="/logout" exact activeClassName="active">
+                            Logout
+                         </NavLink>
+                    </li> */}
+              
                 </ul>
                 <footer className="footer">
                     <p>

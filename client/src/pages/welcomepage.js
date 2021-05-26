@@ -7,13 +7,12 @@ import Container from "../components/Container/Container";
 // import Logout from '../components/Logout/Logout';
 
 
+
+//function WelcomePage() {
 // function WelcomePage() {
 // this is for the popup so it can change its state and work
     // const [buttonPopup, setButtonPopup] = useState(false);
     // const [signupForm, setSignupForm] = useState(false);
-
- 
-
 
 
 
