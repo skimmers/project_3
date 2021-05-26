@@ -26,6 +26,7 @@ function NavBar() {
                            Favorites
                          </NavLink>
                     </li>
+                    {/*
                     <li className="nav-item">
                         <NavLink to="/search" exact activeClassName="active">
                             Search
