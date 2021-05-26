@@ -7,7 +7,6 @@ import FavoritesPage from "../src/pages/FavoritesPage";
 import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Signup from './components/Signup/Signup';
-import Map2 from './components/Map2';
 // import axios from 'axios';
 import Map2 from '../../client/src/components/Map2';
 
