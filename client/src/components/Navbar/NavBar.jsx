@@ -3,6 +3,7 @@ import avatar from '../../images/charging-station-icon-9.jpg';
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
+
     return (
         <div className="NavBar">
             <nav className="nav">
@@ -25,7 +26,7 @@ function NavBar() {
                            Favorites
                          </NavLink>
                     </li>
-                    {/*<li className="nav-item">
+                    <li className="nav-item">
                         <NavLink to="/search" exact activeClassName="active">
                             Search
                          </NavLink>
@@ -35,7 +36,6 @@ function NavBar() {
                             Logout
                          </NavLink>
                     </li> */}
-              
                 </ul>
                 <footer className="footer">
                     <p>

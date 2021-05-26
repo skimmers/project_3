@@ -1,16 +1,17 @@
 /* eslint-disable no-unreachable */
-// import React from 'react';
+import React from 'react';
 
-// function Logout() {
-//     localStorage.clear();
-//         window.location.href = '/';
+function Logout(props) {
 
+    console.log(props);
+    // const handleLogout = () => {
+    // };
 
-// return (
-//     <div>
-//    <button className="sign-up-btn rounded-pill" onClick={this.logout()}>LOGOUT</button>
-//     </div>
-// )
-// }
+    return (
+        <div>
+            <button className="sign-up-btn rounded-pill" onClick={props.logoutHandler}>Logout</button>
+        </div>
+    )
+}
 
-// export default Logout;
+export default Logout;
