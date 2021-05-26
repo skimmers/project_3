@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import React, { useState } from 'react';
 import Signup from './components/Signup/Signup';
 // import axios from 'axios';
+import Map2 from '../../client/src/components/Map2';
 
 
 function App() {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Login from '../components/Login/Login';
-import Signup from '../components/Signup/Signup';
+// import Login from '../components/Login/Login';
+// import Signup from '../components/Signup/Signup';
 // import Logout from '../components/Logout/Logout';
 
 
-function WelcomePage() {
+// function WelcomePage() {
 // this is for the popup so it can change its state and work
     // const [buttonPopup, setButtonPopup] = useState(false);
     // const [signupForm, setSignupForm] = useState(false);
