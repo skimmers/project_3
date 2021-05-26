@@ -48,7 +48,7 @@ export default function StationInfo(props) {
         longitude
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((e) => {
         console.log(e);
@@ -67,9 +67,9 @@ export default function StationInfo(props) {
       props.location.AddressInfo.Town,
       props.location.AddressInfo.AccessComments,
       props.location.AddressInfo.RelatedURL,
+      true,
       props.location.AddressInfo.Latitude,
       props.location.AddressInfo.Longitude,
-      true
     );
   };
 

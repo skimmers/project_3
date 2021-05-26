@@ -52,9 +52,7 @@ export default function Favorites(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const siteStation = props.favorite.stationSite;
-  const lat = props.favorite.latitude;
-  const lon = props.favorite.longitude;
-
+  const address = props.favorite.address;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -69,10 +67,10 @@ export default function Favorites(props) {
       container
       spacing={4}
       direction="row"
-      justify="center"
+      // justify="center"
       alignItems="center"
     >
-      <Grid item xs={12} sm={4}>
+      <Grid item xs={12} >
         <Card className={classes.root}>
           <CardHeader
             avatar={
@@ -107,7 +105,7 @@ export default function Favorites(props) {
         </IconButton> */}
             <IconButton aria-label="directions">
               <Link target="_blank"
-              href={"https://www.google.com/maps/dir/Current+Location/" + lat+ "," + lon}>
+              href={`https://www.google.com/maps/dir/Current+Location/${address}`}>
               <DirectionsIcon />
               </Link>
             </IconButton>
@@ -132,22 +130,24 @@ export default function Favorites(props) {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Information:</Typography>
+              <Typography paragraph className="text-center"><h2 className="text-dark">Information</h2></Typography>
               <Typography paragraph>
-                Address: {props.favorite.address}
-              </Typography>
-              <Typography paragraph>Access: {props.favorite.access}</Typography>
-              <Typography paragraph>
-                Power KW: {props.favorite.power}
+                <strong>Address:</strong> {props.favorite.address}
               </Typography>
               <Typography paragraph>
-                Voltage: {props.favorite.voltage}Mw
+                <strong>Access:</strong> {props.favorite.access}
               </Typography>
               <Typography paragraph>
-                Connection Type: {props.favorite.connectionType}
+                <strong>Power KW:</strong> {props.favorite.power}
               </Typography>
               <Typography paragraph>
-                Station Site: {props.favorite.stationSite}
+                <strong>Voltage:</strong> {props.favorite.voltage}Mw
+              </Typography>
+              <Typography paragraph>
+                <strong>Connection Type:</strong> {props.favorite.connectionType}
+              </Typography>
+              <Typography paragraph>
+                <strong>Station Site:</strong> {props.favorite.stationSite}
               </Typography>
             </CardContent>
           </Collapse>
