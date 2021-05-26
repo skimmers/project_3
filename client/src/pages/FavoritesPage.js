@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Favorites from "../components/Favorites/Favorites";
+import Container from "../components/Container/Container";
 import { useHistory } from "react-router-dom";
 
 function FavoritesPage() {
@@ -73,9 +74,9 @@ function FavoritesPage() {
     
   
     return (
-      <div>
+      <Container>
         {favoritesCard}
-      </div>
+      </Container>
     );
   }
   

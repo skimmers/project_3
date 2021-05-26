@@ -5,7 +5,7 @@ require('dotenv').config();
 export default {
   // API call to retrieve all EV Charge stations for a given location
   getLocation: function(lat, lng) { 
-    const key = process.env.OPEN_CHARGE_MAP_KEY;
+    const key = process.env.REACT_APP_OPEN_CHARGE_MAP_KEY;
     return axios.get(`https://api.openchargemap.io/v3/poi/?output=json&countrycode=US&maxresults=25&compact=true&verbose=false&key=${key}&latitude=${lat}&longitude=${lng}&distance=25`);
   },
 
