@@ -1,7 +1,7 @@
 //import React, {useState, useEffect} from 'react';
 
 import React, {Component} from 'react';
-import Map2 from '../components/Map2.js';
+//import Map2 from '../components/Map2.js';
 
 class SearchPage extends Component {
   render() {
