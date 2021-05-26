@@ -41,8 +41,10 @@ Presentation Deck:
 
     
 # Contact Us
+Arash: https://github.com/Haru2727
+<br>
 Jon: https://github.com/jonathanstoll0603
 <br>
 Sharon: https://github.com/skimmers
 <br>
-Conner: https://github.com/rstadev
+Tyler: https://github.com/Tylergilbert913
