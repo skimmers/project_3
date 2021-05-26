@@ -48,10 +48,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FavoritesInfo(props) {
+export default function Favorites(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const siteStation = props.favorite.stationSite;
+  const lat = props.favorite.latitude;
+  const lon = props.favorite.longitude;
 
 
   const handleExpandClick = () => {
@@ -105,7 +107,7 @@ export default function FavoritesInfo(props) {
         </IconButton> */}
             <IconButton aria-label="directions">
               <Link target="_blank"
-              href="www.google.com">
+              href={"https://www.google.com/maps/dir/Current+Location/" + lat+ "," + lon}>
               <DirectionsIcon />
               </Link>
             </IconButton>

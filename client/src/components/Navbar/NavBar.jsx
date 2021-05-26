@@ -35,8 +35,7 @@ function NavBar() {
                             Logout
                          </NavLink>
                     </li> */}
-                
-                                  
+              
                 </ul>
                 <footer className="footer">
                     <p>

@@ -182,17 +182,7 @@ class Map2 extends React.Component {
         return (map)
     }
 }
+
 export default Map2;
-
-
-
-
-
-
-
-
-
-
-
 
 
