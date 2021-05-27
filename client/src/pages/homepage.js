@@ -70,7 +70,7 @@ function Map() {
   // ********** Right now, the search is working to generate markers for a given search result, but the useEffect() function is causing the page to rerender to the user's geolocation.. Need to find a way to fix this.. ************* //
   // function used to handle a user search
   const handleSearch = (search) => {
-
+    Geocode.setApiKey("AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic");
     // Get latitude & longitude from address.
     Geocode.fromAddress(search)
     .then((res) => {
@@ -84,7 +84,7 @@ function Map() {
   }
 
   // Google API Key from .env file
-  const GoogleAPIKey = "AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic";
+  // const GoogleAPIKey = "AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic";
 
   return (
     <Container>
@@ -97,7 +97,7 @@ function Map() {
         isMarkerShown
         location={location}
         center={initPosition}
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${GoogleAPIKey}&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic`}
+        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyD_ojntZN4KtcGfvz62p81zYUfb8rTyyic"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
